@@ -90,7 +90,7 @@ class DailySummarizer:
 
         header = (
             f"# {labels['header']} - {date}\n\n"
-            f"> From {total_fetched} items, {len(items)} important content pieces were selected\n\n"
+            f"> 📅 {date} · 从 {total_fetched} 条资讯中精选出 {len(items)} 条重要内容\n\n"
             "---\n\n"
         )
 
