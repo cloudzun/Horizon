@@ -1,40 +1,20 @@
 ---
 layout: default
-title: Home
+title: Horizon 每日速递
 ---
 
-# Horizon
+# Horizon 每日速递
 
-Welcome to [Horizon](https://github.com/thysrael/Horizon), an AI-driven information aggregation system.
+AI 驱动的科技新闻聚合
 
-## Documentation
-
-- [Configuration Guide](configuration) — AI providers, information sources, filtering, and environment variable substitution
-- [Source Scrapers](scrapers) — How Horizon collects content from GitHub, Hacker News, RSS, and Reddit
-- [Scoring System](scoring) — AI-based content analysis and the 0-10 scoring scale
-
-## 中文速递
+## 历史归档
 
 <ul>
-  {% assign zh_posts = site.posts | where: "lang", "zh" %}
-  {% for post in zh_posts limit:20 %}
+  {% for post in site.posts limit:30 %}
     <li>
       <a href="{{ post.url | relative_url }}">{{ post.date | date: "%Y-%m-%d" }}</a>
     </li>
   {% else %}
     <li><em>暂无内容</em></li>
-  {% endfor %}
-</ul>
-
-## English Digest
-
-<ul>
-  {% assign en_posts = site.posts | where: "lang", "en" %}
-  {% for post in en_posts limit:20 %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.date | date: "%Y-%m-%d" }}</a>
-    </li>
-  {% else %}
-    <li><em>No posts yet</em></li>
   {% endfor %}
 </ul>

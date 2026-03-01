@@ -102,9 +102,9 @@ class HorizonOrchestrator:
             # 6. Search related stories + enrich with background knowledge (2nd AI pass)
             await self._enrich_important_items(important_items)
 
-            # 7. Generate and save daily summaries for each configured language
+            # 7. Generate and save daily summary (Chinese only)
             today = datetime.utcnow().strftime("%Y-%m-%d")
-            for lang in self.config.ai.languages:
+            lang = "zh"  # Only generate Chinese version
                 summary = await self._generate_summary(important_items, today, len(all_items), language=lang)
 
                 # Save to data/summaries/
@@ -125,7 +125,7 @@ class HorizonOrchestrator:
                     front_matter = (
                         "---\n"
                         "layout: default\n"
-                        f"title: \"Horizon Summary: {today} ({lang.upper()})\"\n"
+                        f"title: \"Horizon 每日速递：{today}\"\n"
                         f"date: {today}\n"
                         f"lang: {lang}\n"
                         "---\n\n"
