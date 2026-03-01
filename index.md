@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Horizon 每日速递
+title: CloudZun 每日速递
 ---
 
-# Horizon 每日速递
+# CloudZun 每日速递
 
 {% assign posts = site.posts %}
 {% assign latest = posts.first %}
