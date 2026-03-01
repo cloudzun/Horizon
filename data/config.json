@@ -2,18 +2,12 @@
   "version": "1.0",
   "ai": {
     "provider": "openai",
-    "model": "qwen3-max-2026-01-23",
+    "model": "qwen3.5-plus",
     "base_url": "https://coding.dashscope.aliyuncs.com/v1",
     "api_key_env": "BAILIAN_API_KEY",
     "temperature": 0.3,
     "max_tokens": 4096,
-    "languages": [
-      "en",
-      "zh"
-    ],
-    "extra_body": {
-      "enable_thinking": false
-    }
+    "languages": ["en", "zh"]
   },
   "sources": {
     "github": [
@@ -71,88 +65,39 @@
         "category": "ai-tools"
       },
       {
-        "name": "The Batch (DeepLearning.AI)",
-        "url": "https://www.deeplearning.ai/the-batch/feed/",
-        "enabled": true,
-        "category": "ai-research"
-      },
-      {
-        "name": "MIT Technology Review AI",
-        "url": "https://www.technologyreview.com/feed/",
-        "enabled": true,
-        "category": "tech-news"
-      },
-      {
         "name": "Hugging Face Blog",
         "url": "https://huggingface.co/blog/feed.xml",
         "enabled": true,
         "category": "ai-ml"
       },
       {
-        "name": "OpenAI Blog",
-        "url": "https://openai.com/blog/rss/",
+        "name": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/feed/",
+        "enabled": true,
+        "category": "tech-news"
+      },
+      {
+        "name": "Ars Technica AI",
+        "url": "https://feeds.arstechnica.com/arstechnica/technology-lab",
+        "enabled": true,
+        "category": "tech-news"
+      },
+      {
+        "name": "VentureBeat AI",
+        "url": "https://venturebeat.com/category/ai/feed/",
         "enabled": true,
         "category": "ai-industry"
       },
       {
-        "name": "Anthropic News",
-        "url": "https://www.anthropic.com/rss.xml",
+        "name": "The Verge AI",
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
         "enabled": true,
         "category": "ai-industry"
       }
     ],
     "reddit": {
-      "enabled": true,
-      "subreddits": [
-        {
-          "subreddit": "MachineLearning",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 15,
-          "min_score": 50
-        },
-        {
-          "subreddit": "LocalLLaMA",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 15,
-          "min_score": 30
-        },
-        {
-          "subreddit": "artificial",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 10,
-          "min_score": 30
-        },
-        {
-          "subreddit": "programming",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 10,
-          "min_score": 100
-        },
-        {
-          "subreddit": "technology",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 10,
-          "min_score": 100
-        },
-        {
-          "subreddit": "singularity",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 10,
-          "min_score": 50
-        }
-      ],
+      "enabled": false,
+      "subreddits": [],
       "users": [],
       "fetch_comments": 5
     },
