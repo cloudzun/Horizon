@@ -1,6 +1,7 @@
 """Content analysis using AI."""
 
 import json
+import asyncio
 from typing import List
 from tenacity import retry, stop_after_attempt, wait_exponential
 from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCompleteColumn
@@ -13,15 +14,17 @@ from ..models import ContentItem
 class ContentAnalyzer:
     """Analyzes content items using AI to determine importance."""
 
-    def __init__(self, ai_client: AIClient):
+    def __init__(self, ai_client: AIClient, concurrency: int = 8):
         self.client = ai_client
+        self.concurrency = concurrency
 
     async def analyze_batch(
         self,
         items: List[ContentItem],
         batch_size: int = 10
     ) -> List[ContentItem]:
-        analyzed_items = []
+        analyzed_items = [None] * len(items)
+        semaphore = asyncio.Semaphore(self.concurrency)
 
         with Progress(
             SpinnerColumn(),
@@ -32,36 +35,30 @@ class ContentAnalyzer:
         ) as progress:
             task = progress.add_task("Analyzing", total=len(items))
 
-            for i in range(0, len(items), batch_size):
-                batch = items[i:i + batch_size]
-                for item in batch:
+            async def analyze_one(idx: int, item: ContentItem):
+                async with semaphore:
                     try:
                         await self._analyze_item(item)
-                        analyzed_items.append(item)
                     except Exception as e:
                         print(f"Error analyzing item {item.id}: {e}")
                         item.ai_score = 0.0
                         item.ai_reason = "Analysis failed"
                         item.ai_summary = item.title
-                        analyzed_items.append(item)
+                    analyzed_items[idx] = item
                     progress.advance(task)
 
-        return analyzed_items
+            await asyncio.gather(*[analyze_one(i, item) for i, item in enumerate(items)])
+
+        return [item for item in analyzed_items if item is not None]
 
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(min=2, max=10)
     )
     async def _analyze_item(self, item: ContentItem) -> None:
-        """Analyze a single content item.
-
-        Args:
-            item: Content item to analyze (modified in-place)
-        """
-        # Prepare content section
+        """Analyze a single content item."""
         content_section = ""
         if item.content:
-            # Split off comments if present
             content_text = item.content
             if "--- Top Comments ---" in content_text:
                 main, comments_part = content_text.split("--- Top Comments ---", 1)
@@ -69,7 +66,6 @@ class ContentAnalyzer:
             else:
                 content_section = f"Content: {content_text[:1000]}"
 
-        # Prepare discussion section (comments, engagement)
         discussion_parts = []
         if item.content and "--- Top Comments ---" in item.content:
             comments_part = item.content.split("--- Top Comments ---", 1)[1]
@@ -102,7 +98,6 @@ class ContentAnalyzer:
 
         discussion_section = "\n".join(discussion_parts) if discussion_parts else ""
 
-        # Generate user prompt
         user_prompt = CONTENT_ANALYSIS_USER.format(
             title=item.title,
             source=f"{item.source_type.value}",
@@ -112,18 +107,15 @@ class ContentAnalyzer:
             discussion_section=discussion_section
         )
 
-        # Get AI completion
         response = await self.client.complete(
             system=CONTENT_ANALYSIS_SYSTEM,
             user=user_prompt,
             temperature=0.3
         )
 
-        # Parse JSON response
         try:
             result = json.loads(response)
         except json.JSONDecodeError:
-            # Try to extract JSON from markdown code block
             if "```json" in response:
                 json_str = response.split("```json")[1].split("```")[0].strip()
                 result = json.loads(json_str)
@@ -133,7 +125,6 @@ class ContentAnalyzer:
             else:
                 raise ValueError(f"Invalid JSON response: {response}")
 
-        # Update item with analysis results
         item.ai_score = float(result.get("score", 0))
         item.ai_reason = result.get("reason", "")
         item.ai_summary = result.get("summary", item.title)
