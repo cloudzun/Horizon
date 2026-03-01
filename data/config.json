@@ -7,7 +7,9 @@
     "api_key_env": "BAILIAN_API_KEY",
     "temperature": 0.3,
     "max_tokens": 4096,
-    "languages": ["zh"]
+    "languages": [
+      "zh"
+    ]
   },
   "sources": {
     "github": [
@@ -117,6 +119,30 @@
         "url": "https://lemmy.world/feeds/c/singularity.xml",
         "enabled": true,
         "category": "community"
+      },
+      {
+        "name": "Import AI (Jack Clark)",
+        "url": "https://jack-clark.net/feed/",
+        "enabled": true,
+        "category": "ai-research"
+      },
+      {
+        "name": "Interconnects (Nathan Lambert)",
+        "url": "https://www.interconnects.ai/feed",
+        "enabled": true,
+        "category": "ai-research"
+      },
+      {
+        "name": "Ahead of AI (Sebastian Raschka)",
+        "url": "https://magazine.sebastianraschka.com/feed",
+        "enabled": true,
+        "category": "ai-research"
+      },
+      {
+        "name": "Lobsters",
+        "url": "https://lobste.rs/rss",
+        "enabled": true,
+        "category": "tech-community"
       }
     ],
     "reddit": {
