@@ -93,6 +93,30 @@
         "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
         "enabled": true,
         "category": "ai-industry"
+      },
+      {
+        "name": "Lemmy - MachineLearning",
+        "url": "https://lemmy.ml/feeds/c/machinelearning.xml",
+        "enabled": true,
+        "category": "community"
+      },
+      {
+        "name": "Lemmy - Artificial Intelligence",
+        "url": "https://lemmy.world/feeds/c/artificial_intelligence.xml",
+        "enabled": true,
+        "category": "community"
+      },
+      {
+        "name": "Lemmy - LocalLLM",
+        "url": "https://lemmy.world/feeds/c/localllm.xml",
+        "enabled": true,
+        "category": "community"
+      },
+      {
+        "name": "Lemmy - Singularity",
+        "url": "https://lemmy.world/feeds/c/singularity.xml",
+        "enabled": true,
+        "category": "community"
       }
     ],
     "reddit": {
