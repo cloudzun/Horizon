@@ -5,198 +5,309 @@ date: 2026-03-02
 lang: zh
 ---
 
-> 📅 2026-03-02 · 从 56 条资讯中精选出 17 条重要内容
+> 📅 2026-03-02 · 从 65 条资讯中精选出 18 条重要内容
 
 ---
 
-1. [摩托罗拉携手 GrapheneOS 基金会，将安全 Android 扩展至 Pixel 之外](#item-1) ⭐️ 9.0/10
-2. [AI 交互会话是否应包含在代码 commit 中？](#item-2) ⭐️ 8.0/10
-3. [Google 宣布推出用于 AI 代理的 WebMCP 早期预览版](#item-3) ⭐️ 8.0/10
-4. [埃弗里特因公共记录裁决关闭 Flock 摄像头网络](#item-4) ⭐️ 8.0/10
-5. [Ghostty 创作者分享 Libghostty 进展与社区反馈](#item-5) ⭐️ 8.0/10
-6. [交互式决策树可视化突显延迟与可解释性优势](#item-6) ⭐️ 8.0/10
-7. [Hacker News 辩论质疑 MCP 相对于传统 CLI 工具在 AI 代理中的价值](#item-7) ⭐️ 8.0/10
-8. [AWS 中东中部区域因军事冲突发生中断](#item-8) ⭐️ 8.0/10
-9. [研究揭示 Go 语言 X.509 证书验证中的边缘情况](#item-9) ⭐️ 8.0/10
-10. [利用覆盖空间和双曲几何黑客超级马里奥 64](#item-10) ⭐️ 8.0/10
-11. [StepSecurity 披露 AI 机器人攻击 GitHub Actions](#item-11) ⭐️ 8.0/10
-12. [Simon Willison 分享导出 Claude AI 记忆数据的提示词](#item-12) ⭐️ 7.0/10
-13. [Simon Willison 提出交互式解释缓解认知债务](#item-13) ⭐️ 7.0/10
-14. [GNU Guix 成功实现 Hurd 内核 64 位移植](#item-14) ⭐️ 7.0/10
-15. [BEAM 与 OTP 在基于进程并发中的持续相关性分析](#item-15) ⭐️ 7.0/10
-16. [Linux 系统硬件热插拔事件处理的技术分析](#item-16) ⭐️ 7.0/10
-17. [随机输入/输出操作性能惩罚的分析](#item-17) ⭐️ 7.0/10
+1. [摩托罗拉与 GrapheneOS 合作推安全 Android 设备](#item-1) ⭐️ 9.0/10
+2. [OpenAI 达成美军机密环境使用协议](#item-2) ⭐️ 9.0/10
+3. [加州大学戴维斯分校确认首例子宫内干细胞治疗脊柱裂安全](#item-3) ⭐️ 8.0/10
+4. [逆向分析揭示苹果 M4 神经引擎内部架构](#item-4) ⭐️ 8.0/10
+5. [美国最高法院拒绝审理 AI 艺术版权案件](#item-5) ⭐️ 8.0/10
+6. [英伟达投资 40 亿美元于 Lumentum 和 Coherent 发展光子学](#item-6) ⭐️ 8.0/10
+7. [Import AI 447 解析 AGI 经济、游戏测试与 Agent 生态](#item-7) ⭐️ 8.0/10
+8. [前 libxml2 维护者发布 AGPL 企业版](#item-8) ⭐️ 8.0/10
+9. [Fabien Sanglard 搭建时期准确的 Quake PC](#item-9) ⭐️ 8.0/10
+10. [John Regehr 测试 AI 修复的 C 编译器](#item-10) ⭐️ 8.0/10
+11. [Anthropic Claude Cowork 在未警告情况下于 macOS 创建 10GB VM bundle](#item-11) ⭐️ 7.0/10
+12. [Simon Willison 分享导出 Claude AI 所有记忆数据的 Prompt](#item-12) ⭐️ 7.0/10
+13. [Simon Willison 倡导 Interactive Explanations 以减少 AI Cognitive Debt](#item-13) ⭐️ 7.0/10
+14. [AWS 中东中央区域因军事冲突中断](#item-14) ⭐️ 7.0/10
+15. [2025 年 Rust 状态调查结果正式发布](#item-15) ⭐️ 7.0/10
+16. [Narwhal v0.5.0 切换至 Monoio 以利用 io_uring 性能](#item-16) ⭐️ 7.0/10
+17. [分析涵盖了 Linux 硬件热插拔事件及其复杂细节](#item-17) ⭐️ 7.0/10
+18. [修改超级马里奥 64 实现非欧几何效果](#item-18) ⭐️ 7.0/10
 
 ---
 
 <a id="item-1"></a>
-## [摩托罗拉携手 GrapheneOS 基金会，将安全 Android 扩展至 Pixel 之外](https://motorolanews.com/motorola-three-new-b2b-solutions-at-mwc-2026/) ⭐️ 9.0/10
+## [摩托罗拉与 GrapheneOS 合作推安全 Android 设备](https://motorolanews.com/motorola-three-new-b2b-solutions-at-mwc-2026/) ⭐️ 9.0/10
 
-摩托罗拉宣布与 GrapheneOS 基金会建立战略合作伙伴关系，将安全开源 Android 解决方案带入非 Pixel 设备。此次合作旨在将 GrapheneOS 安全功能集成到摩托罗拉硬件中，并可能提供更完善的更新策略。 这代表了移动安全领域的潜在范式转变，验证了 Google Pixel 生态系统之外的企业可行性。它解决了长期以来关于非 Pixel Android 设备的硬件安全约束和更新策略的担忧。 该合作伙伴关系专注于将安全开源 Android 解决方案带入企业市场，并讨论了 MDM 集成和更新频率。社区反馈强调需要简单的 MDM 设置和一致的安全补丁才能有效竞争。
+摩托罗拉宣布与 GrapheneOS 建立战略合作伙伴关系，旨在提供具有改进更新策略的安全加固 Android 设备。此次合作旨在将摩托罗拉的硬件与 GrapheneOS 的注重隐私的操作系统相结合，服务于企业和安全意识强的用户。 此次合作代表了移动安全领域的潜在范式转变，将主要硬件 OEM 厂商与领先的注重隐私的 OS 结合。它可能通过提供比标准消费类产品具有更好更新生命周期的验证安全设备，从而显著影响企业市场。 社区讨论突出了技术考量，例如 AVB keys、Play Integrity 影响以及企业 MDM 集成。用户指出摩托罗拉历史上硬件良好但更新策略较差，而此次合作旨在解决这一问题。
 
 hackernews · Lobsters · Mar 2, 06:48
 
-**背景**: GrapheneOS 是一个定制的安全强化版 Android 版本，主要为 Pixel 设备构建，目标是最大化安全性和隐私。它与碳材料石墨烯不同，专注于软件功能，例如通过 Vanadium 子项目增强 Web 浏览。用户通常重视其设置胁迫 PIN 码和不可逆擦除设备以进行保护的能力。
+**背景**: GrapheneOS 是一个注重隐私和安全的移动操作系统，具有 Android 应用兼容性，作为非营利开源项目开发。安全加固 Android 涉及内核补丁和应用沙盒化，以防止恶意应用程序利用的漏洞。历史上，GrapheneOS 主要安装在 Pixel 手机上，使得此次 OEM 合作成为重大扩展。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://grapheneos.org/features">Features overview - GrapheneOS</a></li>
-<li><a href="https://www.reddit.com/r/degoogle/comments/1n22hdx/can_someone_explain_grapheneos_to_me_like_im_five/">Can someone explain GrapheneOS to me like I'm five? What exactly it is ...</a></li>
+<li><a href="https://grapheneos.org/">GrapheneOS: the private and secure mobile OS</a></li>
+<li><a href="https://encryptionmobile.com/how-hardened-android-works-kernel-patching-and-app-sandboxing/">How Hardened Android Works: Kernel Patching and App ...</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 社区成员对摩托罗拉的硬件质量表示兴奋，但强调需要改进更新策略和一流的 MDM 支持。一些用户指出摩托罗拉历史上更新频率较差，希望 GrapheneOS 能解决这一不满。另一些人则询问 GrapheneOS 是默认预装还是仅仅更容易安装在这些设备上。
+**社区讨论**: 用户对更容易获得 GrapheneOS 设备表示兴奋，但提出了关于 AVB key 白名单和 Play Integrity 状态的技术问题。一些评论者强调需要改进更新策略和一流的 MDM 支持以吸引企业采用。
 
-**标签**: `#Mobile Security`, `#Open Source`, `#GrapheneOS`, `#Android`, `#Enterprise`
+**标签**: `#Mobile Security`, `#GrapheneOS`, `#Android`, `#Enterprise`, `#Open Source`
 
 ---
 
 <a id="item-2"></a>
-## [AI 交互会话是否应包含在代码 commit 中？](https://github.com/mandel-macaque/memento) ⭐️ 8.0/10
+## [OpenAI 达成美军机密环境使用协议](https://www.technologyreview.com/2026/03/02/1133850/openais-compromise-with-the-pentagon-is-what-anthropic-feared/) ⭐️ 9.0/10
 
-Hacker News 社区正在积极讨论开发者是否应该将 AI 交互会话记录在版本控制 commit 中。这场讨论围绕一个名为 memento 的 GitHub 项目展开，该项目探索了追踪 AI 辅助开发工作流的方法。 这场辩论触及了 AI 辅助软件工程的新兴标准，并影响团队如何在代码库中维护可审计性和上下文。其结果可能会影响未来开发者关于噪音减少和历史上下文保留的工作流。 参与者争论粒度问题，一些人建议详细的计划文件，而另一些人担心 PR 中过多的噪音。关键担忧在于未来的工程师或 LLM 是否真的需要访问这些交互日志，而不仅仅是最终代码。
+2 月 28 日，OpenAI 宣布达成一项新协议，允许美国军方在机密环境中使用其技术。这项协议是在五角大楼公开谴责并将 Anthropic 列入黑名单后迅速谈判达成的。 这一公告标志着领先的人工智能实验室在军事部署和安全规范方面的政策发生了重大转变。它凸显了企业伦理策略的日益分歧，可能会影响整个行业如何执行人工智能安全红线。 CEO 山姆·阿尔特曼承认，在政府针对 Anthropic 采取行动后，谈判确实是匆忙进行的。OpenAI 在公告中极力澄清具体条款，这与 Anthropic 反对大规模监控的立场形成对比。
 
-hackernews · mandel_x · Mar 2, 00:27
+rss · MIT Technology Review · Mar 2, 17:29
 
-**背景**: 像 Git 这样的版本控制系统传统上追踪源代码的变更，而不是创建代码所使用的思维过程或工具。随着 AI 工具成为编码的重要组成部分，开发者正在质疑应该保留多少关于生成过程的元数据。理解 commit 历史对于调试和随时间维护软件至关重要。
+**背景**: 美国国防部一直在寻求与主要人工智能公司合作，将先进模型集成到机密防御系统中。Anthropic 此前制定了安全红线，以防止其技术被用于大规模监控。这一背景解释了文中描述的国家安全需求与企业人工智能安全承诺之间的紧张关系。
 
-**社区讨论**: 情绪不一，一些用户提议使用结构化计划文件，而另一些人则认为会话日志会给审查增加不必要的噪音。批评者指出 AI 交互通常缺乏单一清晰的输入，并且与传统编译器反馈循环显著不同。许多人强调无论是否有 AI 辅助，人类仍然对代码质量负责。
-
-**标签**: `#Software Engineering`, `#AI Tooling`, `#Version Control`, `#Developer Workflow`, `#Best Practices`
+**标签**: `#AI Policy`, `#Military AI`, `#AI Safety`, `#OpenAI`, `#Ethics`
 
 ---
 
 <a id="item-3"></a>
-## [Google 宣布推出用于 AI 代理的 WebMCP 早期预览版](https://developer.chrome.com/blog/webmcp-epp) ⭐️ 8.0/10
+## [加州大学戴维斯分校确认首例子宫内干细胞治疗脊柱裂安全](https://health.ucdavis.edu/news/headlines/first-ever-in-utero-stem-cell-therapy-for-fetal-spina-bifida-repair-is-safe-study-finds/2026/02) ⭐️ 8.0/10
 
-Google 已通过 Chrome 146 Canary 发布了 WebMCP 的早期预览版，允许网站直接向 AI 代理暴露结构化函数。该新协议使代理能够通过浏览器 API 执行 Web 应用程序上的特定操作，而不仅仅依赖现有的交互方法。 这一转变可能从根本上改变 AI 代理与 Web 的交互方式，从被动阅读转向无需人工干预的主动任务执行。然而，这也引发了关于安全性、隐私性以及企业可能对 Web 标准增加控制权的重大担忧。 该协议引入了新的威胁向量，可调用的 JavaScript 工具可能被利用，需要社区记录仔细的风险评估和缓解策略。此外，批评者指出其与现有的 Semantic Web 标准（如 RDF 和 OWL）可能存在冗余，质疑这种新专有方法的必要性。
+加州大学戴维斯分校健康研究团队已成功完成临床试验第一阶段，证明了将胎儿手术与同种异体干细胞结合用于脊柱裂修复的安全性。发表在《柳叶刀》上的研究结果显示，手术过程中没有出现与细胞相关的不良反应。 这一突破验证了一种范式转变的方法，可能显著减少出生前由脊柱裂引起的神经损伤。它为涉及 35 名患者的更大规模试验铺平了道路，并可能将干细胞应用扩展到其他先天性疾病。 该疗法使用胎盘来源的同种异体活干细胞，在子宫内手术期间直接应用于神经基板。安全结果使研究人员能够继续进行下一阶段的非阶梯式入组研究。
 
-hackernews · andsoitis · Mar 1, 22:13
+hackernews · gmays · Mar 2, 14:54
 
-**背景**: AI 代理通常通过解释可见内容与网站交互，这对于复杂任务可能不可靠。WebMCP 引入了一种协议，让网站通过浏览器 API 直接向 AI 代理暴露结构化函数。这旨在标准化自主系统如何在无需人工干预的情况下在 Web 上执行操作。
+**背景**: 脊柱裂是一种神经管缺陷，脊柱和脊髓无法正常形成，通常导致身体和神经残疾。标准护理包括胎儿手术以闭合开口，但暴露于羊水中仍可能导致进行性神经损伤。干细胞是未分化的细胞，能够发育成各种组织类型，提供了再生的潜力。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://www.forbes.com/sites/joetoscano1/2026/02/19/google-ships-webmcp-the-browser-based-backbone-for-the-agentic-web/">Google Ships WebMCP, The Browser-Based Backbone ... - Forbes</a></li>
-<li><a href="https://github.com/webmachinelearning/webmcp/blob/main/docs/security-privacy-considerations.md">webmcp/docs/security-privacy-considerations.md at main ...</a></li>
+<li><a href="https://health.ucdavis.edu/news/headlines/first-ever-in-utero-stem-cell-therapy-for-fetal-spina-bifida-repair-is-safe-study-finds/2026/02">First-ever in-utero stem cell therapy for fetal spina bifida ...</a></li>
+<li><a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(25)02466-3/fulltext">Feasibility and safety of cellular therapy for in-utero ...</a></li>
+<li><a href="https://www.nature.com/articles/d41586-026-00602-z">World-first stem-cell therapy shows promise for treating ...</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 社区反应不一，一些用户担心 Google 会像 AMP 一样集中控制 Web 标准。其他人建议转而支持 a11y 无障碍功能，而另一些人则讨论了潜在的安全漏洞，即可以使用相同的工具阻止或误导 bots。
+**社区讨论**: 评论者表达了压倒性的希望和感激之情，几个人分享了涉及受遗传疾病和残疾影响的家庭成员或邻居的个人经历。许多人赞扬了医疗团队的努力，并推测干细胞研究的更广泛应用，例如心脏组织再生。
 
-**标签**: `#AI Agents`, `#Web Standards`, `#Google Chrome`, `#Security`, `#LLM Integration`
+**标签**: `#Biotechnology`, `#Medical Research`, `#Stem Cells`, `#Healthcare`, `#Science`
 
 ---
 
 <a id="item-4"></a>
-## [埃弗里特因公共记录裁决关闭 Flock 摄像头网络](https://www.wltx.com/article/news/nation-world/281-53d8693e-77a4-42ad-86e4-3426a30d25ae) ⭐️ 8.0/10
+## [逆向分析揭示苹果 M4 神经引擎内部架构](https://maderix.substack.com/p/inside-the-m4-apple-neural-engine) ⭐️ 8.0/10
 
-埃弗里特市在法官裁定录制录像属于公共记录后，禁用了其 Flock Safety 摄像头网络。此次关闭是因为市政府不同意允许公众访问监控数据的裁决。 这一决定为市政收集的自动监控数据是否必须向公民透明设立了重要的法律先例。它突出了公共安全工具与隐私权之间的紧张关系，可能会影响全国类似网络的运作方式。 市长 Cassie Franklin 表示担心公开录像会使跟踪者或家庭虐待者能够通过访问数据伤害受害者。批评者认为，保留摄像头同时限制数据访问未能解决数据聚合和 AI 分析成本的核心问题。
+知名逆向工程师 zdw 发布了一份详细分析报告，绕过 CoreML 直接与 M4 Apple Neural Engine 硬件交互。该报告揭示了具体的内部架构细节以及 6.6 FLOPS/W 效率等性能指标。 这一突破使得 Apple Silicon 上的本地 AI 工作负载能够更好地优化，并支持 MLX 和 Asahi Linux 等项目。它强调了超越苹果受限框架之外，开放访问专有 AI 硬件加速器的潜力。 分析确认该引擎在不使用时可以完全关闭，实现空闲时 0W 功耗，并且在大型矩阵乘法方面与低级接口相比几乎无开销。前苹果员工验证了这项工作的难度，而讨论指出即使是 MLX 团队也无法获得源代码。
 
-hackernews · aranaur · Mar 2, 04:06
+hackernews · zdw · Mar 1, 17:11
 
-**背景**: Flock Safety 是一家知名的公司，制造执法部门和社区使用的自动车牌识别 (ALPR) 和视频监控系统。这些系统捕获车辆数据和视频录像以协助破案，但引发了关于数据所有权和隐私的问题。法律辩论的核心在于政府签约设备收集的数据是否属于公共记录法范畴。
+**背景**: Apple Neural Engine 是集成在 Apple Silicon 芯片中的专用硬件组件，旨在高效加速机器学习任务。它通常通过苹果的 Core ML 框架工作，该框架向开发者抽象了硬件细节以确保安全性和稳定性。逆向工程该组件使研究人员能够理解苹果未记录的低级指令和性能特征。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Flock_Safety">Flock Safety - Wikipedia</a></li>
-<li><a href="https://www.latimes.com/california/story/2026-03-01/surveillance-company-flock-safety-los-angeles">Surveillance company Flock generates controversy, and L.A. customers - Los Angeles Times</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Neural_Engine">Neural Engine - Wikipedia</a></li>
+<li><a href="https://machinelearning.apple.com/research/neural-engine-transformers">Deploying Transformers on the Apple Neural Engine</a></li>
+<li><a href="https://maderix.substack.com/p/inside-the-m4-apple-neural-engine">Inside the M4 Apple Neural Engine, Part 1: Reverse Engineering</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 评论者普遍支持法官的裁决，认为关闭行动揭示了数据捕获的无差别规模以及实体潜在的滥用。一些用户强调需要严格的法律保证以防止数据外泄，而另一些人指出 AI 使得分析如此庞大的数据几乎零成本。
+**社区讨论**: 社区情绪非常积极，前苹果员工验证了逆向工程工作的技术难度和质量。讨论强调了对专有限制的担忧，指出即使是 MLX 等内部团队也缺乏源代码访问权限，而其他人确认了本地 AI 框架支持的潜力。
 
-**标签**: `#Surveillance`, `#Privacy`, `#Public Policy`, `#Legal`, `#AI`
+**标签**: `#Reverse Engineering`, `#Apple Silicon`, `#Machine Learning Hardware`, `#Systems Programming`, `#Local AI`
 
 ---
 
 <a id="item-5"></a>
-## [Ghostty 创作者分享 Libghostty 进展与社区反馈](https://ghostty.org/docs) ⭐️ 8.0/10
+## [美国最高法院拒绝审理 AI 艺术版权案件](https://www.theverge.com/policy/887678/supreme-court-ai-art-copyright) ⭐️ 8.0/10
 
-Ghostty 创作者 Mitchell Hashimoto 透露 libghostty 现已为十多个终端项目提供支持，标志着向可嵌入终端技术的转变。用户正在积极将 Ghostty 与 kitty 和 WezTerm 等竞争对手在功能对等性和稳定性方面进行比较。 这凸显了将终端仿真逻辑与 UI 应用程序分离的日益增长的趋势，有可能在不同工具之间标准化终端性能。该讨论反映了社区对开源开发者工具的高度参与，以及对现代化、GPU 加速终端体验的需求。 虽然 libghostty 的采用正在扩大，但与成熟的替代方案相比，一些用户报告缺少滚动缓冲搜索等功能以及偶尔的 SSH 连接问题。该项目强调平台原生 UI 和 GPU 加速作为核心技术差异化因素。
+美国最高法院拒绝审理计算机科学家 Stephen Thaler 的上诉，实际上维持了 AI 生成艺术无法获得版权的裁决。这一决定确认了此前下级法院关于人工智能创作作品版权资格的判决。 这确立了一个影响 AI 行业的重要法律先例，并明确了生成式内容的知识产权。它通过定义机器生成输出的所有权限制，影响了依赖 AI 工具的创作者和公司。 该案涉及 Stephen Thaler 在 2019 年美国版权局决定被下级法院维持后的上诉。最高法院拒绝审理此案，最终确定了根据当前解释 AI 生成作品不符合版权保护资格的立场。
 
-hackernews · oli5679 · Mar 1, 12:13
+rss · The Verge AI · Mar 2, 17:58
 
-**背景**: Ghostty 是一个跨平台终端仿真器，以使用平台原生 UI 和 GPU 加速来实现高性能而闻名。Libghostty 是源自 Ghostty 的可嵌入库，允许其他应用程序集成功能齐全的终端仿真器。
+**背景**: 版权法传统上要求作品必须具有人类作者身份才能根据美国法规获得保护。美国版权局一直坚持认为包括 AI 系统在内的非人类实体不能列为版权注册的作者。这一法律框架决定了谁拥有复制、分发或修改创意作品的权利。
 
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://ghostty.org/docs">Ghostty Docs</a></li>
-<li><a href="https://mitchellh.com/writing/libghostty-is-coming">Libghostty Is Coming – Mitchell Hashimoto</a></li>
-<li><a href="https://github.com/ghostty-org/ghostty">Ghostty is a fast, feature-rich, and cross-platform terminal ... - GitHub</a></li>
-
-</ul>
-</details>
-
-**社区讨论**: 创作者强调 libghostty 是未来的方向，而用户则就与 kitty 和 WezTerm 相比的功能完整性进行了辩论。一些人称赞了 UI 设计，但其他人指出了具体的缺点，如缺乏滚动缓冲搜索和 SSH 稳定性问题。
-
-**标签**: `#Developer Tools`, `#Systems Programming`, `#Terminal Emulator`, `#Open Source`, `#Community Discussion`
+**标签**: `#AI`, `#Copyright`, `#Legal`, `#Policy`, `#Generative AI`
 
 ---
 
 <a id="item-6"></a>
-## [交互式决策树可视化突显延迟与可解释性优势](https://mlu-explain.github.io/decision-tree/) ⭐️ 8.0/10
+## [英伟达投资 40 亿美元于 Lumentum 和 Coherent 发展光子学](https://www.theverge.com/tech/887635/nvidia-ai-photonics-lumentum-coherent) ⭐️ 8.0/10
 
-mlu-explain 系列发布的新交互式可视化展示了决策树如何通过嵌套决策规则运作。该资源引发了关于决策树相比神经网络在实际工程优势方面的重大社区讨论。 这很重要，因为决策树提供更优的推理延迟和模型可解释性，这对低延迟应用和受监管行业至关重要。讨论强调，尽管神经网络兴起，传统算法在特定工程环境中仍然是重要工具。 社区成员分享经验称，决策树在保持具有竞争力的准确率的同时，实现了比神经网络低两个数量级的延迟。其他人指出，由于对可解释模型而非黑盒神经网络的文化偏好，CERN 的物理分析历史上曾使用决策树。
+英伟达宣布向 Lumentum 和 Coherent 各投资 20 亿美元，共同开发用于数据中心的光子学技术。这笔资金旨在支持光收发模块和电路交换机等组件，以加速 AI 工作负载的数据传输。 这一战略转变通过验证光学技术对未来数据中心扩展的重要性，解决了 AI 基础设施中的关键瓶颈。此举有望显著改善能源效率和带宽，这对于维持大规模 AI 模型的增长至关重要。 该投资专注于激光器和光电路交换机等特定硬件，这些硬件使信号保持在光域以减少延迟。这些技术旨在以高速长距离传输数据，同时降低与传统电子方法相比的能源开销。
 
-hackernews · mschnell · Mar 1, 08:55
+rss · The Verge AI · Mar 2, 16:56
 
-**背景**: 决策树是一种监督学习算法，它根据特征值分割数据，形成树状结构以进行预测。与神经网络不同，它们通常被认为更透明，因为人类可以逻辑地追踪其决策路径。可解释人工智能 (XAI) 框架越来越重视这种透明度，用于监管环境中的高风险决策。
+**背景**: 光子计算使用光而不是电子来存储信息和执行计算，提供更快的处理速度和更低的能源开销。光收发模块是将电信号转换为光信号以便在光纤网络上传输的设备。此外，光电路交换机允许信号从源头到目的地保持在光域，从而实现超低延迟的互连。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Decision_tree_learning">Decision tree learning - Wikipedia</a></li>
-<li><a href="https://www.paloaltonetworks.com/cyberpedia/ai-explainability">What Is Explainability? - Palo Alto Networks</a></li>
+<li><a href="https://physics.aps.org/articles/v18/84">Physics - Photonic Computing Takes a Step Toward Fruition</a></li>
+<li><a href="https://www.optcore.net/what-is-fiber-optic-transceiver/?srsltid=AfmBOora9xT0tUpsOIA6JJICdMJWO-Fez3NIl3nQf_FXpfdE2bIVCBHy">What is Optical Transceiver: A Beginner Guide (2024) - Optcore</a></li>
+<li><a href="https://www.coherent.com/networking/optical-circuit-switch">Optical Circuit Switch - Coherent</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 参与者强调了决策树的延迟优势，一位工程师指出在低延迟应用中它们比神经网络快两个数量级。其他人回忆起在神经网络流行之前，由于可解释性问题，CERN 的物理分析历史上曾偏好 boosted decision trees。
-
-**标签**: `#Machine Learning`, `#Decision Trees`, `#Explainability`, `#Performance Engineering`, `#Education`
+**标签**: `#AI Infrastructure`, `#Photonics`, `#Data Centers`, `#Nvidia`, `#Hardware`
 
 ---
 
 <a id="item-7"></a>
-## [Hacker News 辩论质疑 MCP 相对于传统 CLI 工具在 AI 代理中的价值](https://ejholmes.github.io/2026/02/28/mcp-is-dead-long-live-the-cli.html) ⭐️ 8.0/10
+## [Import AI 447 解析 AGI 经济、游戏测试与 Agent 生态](https://jack-clark.net/2026/03/02/import-ai-447-the-agi-economy-testing-ais-with-generated-games-and-agent-ecologies/) ⭐️ 8.0/10
 
-最近的一篇文章认为，与用于 AI 代理集成的传统 CLI 工具相比，Model Context Protocol (MCP) 没有提供实际利益。这一说法引发了一场激烈的 Hacker News 讨论，共有 244 条评论辩论架构上的权衡。 这场讨论突出了开发人员在构建 AI 代理时面临的关键决策，特别是关于标准化协议与本地工具之间的身份验证、沙箱化和可靠性。结果可能会影响行业是将 MCP 采纳为标准，还是依赖现有的 CLI 基础设施进行 AI 工作流。 CLI 的支持者指出，代理可以有效地解析 `--help` 输出来使用未见过的命令，而一些用户报告 MCP 服务器是需要维护的不稳定进程。相反，MCP 支持者强调其在远程集成方面的易用性以及无需本地安装的标准 OAuth 发现。
+本期 Import AI 分析了来自 MIT、WashU 和 UCLA 的研究，探讨了人类转向验证角色的 AGI 经济转变。它还探讨了使用生成游戏测试 AI 模型的新方法，并考察了大规模 agent 生态。 随着自动化程度提高，理解这些经济转变至关重要，它可能会重新定义 AGI 驱动未来中的人类劳动角色。像生成游戏这样的新颖评估方法提供了比传统静态测试更清晰的基准来衡量 AI 能力。 通讯强调了具体研究，表明大多数劳动最终可能流向机器，而人类专注于验证任务。此外，它引用了 Agent ecologies 研究，该研究超越了小规模演示，转向数万个协作 agent。
 
-hackernews · ejholmes · Mar 1, 16:54
+rss · Import AI (Jack Clark) · Mar 2, 13:45
 
-**背景**: Model Context Protocol (MCP) 是 Anthropic 于 2024 年 11 月推出的开放标准，旨在标准化 AI 系统如何与外部工具和数据源集成。它旨在允许像 Claude 这样的 AI 应用程序无缝连接到数据库、文件和专业工作流。相比之下，CLI 工具是传统的命令行界面，长期以来一直用于系统自动化，需要本地安装。
+**背景**: Import AI 是 Jack Clark 编写的一份通讯，精选重要的 AI 研究论文和行业发展。Agent ecologies 指的是多个 AI agent 在大规模下交互和协作的系统。使用游戏进行评估允许研究人员在具有明确获胜条件的动态环境中测试 AI 决策。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">Model Context Protocol - Wikipedia</a></li>
-<li><a href="https://modelcontextprotocol.io/">What is the Model Context Protocol ( MCP )? - Model Context Protocol</a></li>
+<li><a href="https://jack-clark.net/2026/02/02/import-ai-443-into-the-mist-moltbook-agent-ecologies-and-the-internet-in-transition/">Import AI 443: Into the mist: Moltbook, agent ecologies, and the internet in transition | Import AI</a></li>
+<li><a href="https://blog.google/innovation-and-ai/products/kaggle-game-arena/">Kaggle Game Arena evaluates AI models through games</a></li>
+<li><a href="https://medium.com/@jalajagr/the-complete-guide-to-the-ai-agents-ecosystem-1b11ae3761f1">The Complete Guide to the AI Agents Ecosystem | by Jalaj Agrawal | Medium</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 社区情绪存在分歧，一些开发人员称赞 CLI 在其本地开发工作流中的可组合性和可靠性，而其他人则为 MCP 在企业用例中的表现辩护。具体的争论集中在 MCP 与 CLI 工具固有的沙箱化挑战相比，在身份验证和远程访问处理方面的优越性。
-
-**标签**: `#AI Agents`, `#Model Context Protocol`, `#CLI`, `#Developer Tools`, `#Software Architecture`
+**标签**: `#AI Research`, `#AGI`, `#AI Evaluation`, `#Multi-Agent Systems`, `#AI Economics`
 
 ---
 
 <a id="item-8"></a>
-## [AWS 中东中部区域因军事冲突发生中断](https://health.aws.amazon.com/health/status) ⭐️ 8.0/10
+## [前 libxml2 维护者发布 AGPL 企业版](https://codeberg.org/nwellnhof/libxml2-ee) ⭐️ 8.0/10
 
-AWS 位于阿联酋的中东中部区域遭遇了重大中断，据报道这与军事冲突有关。这一事件突显了位于地缘政治不稳定地区的云基础设施的脆弱性。 此次中断强调了站点可靠性工程中需要多区域冗余策略以减轻地缘政治风险的关键需求。依赖单区域部署的组织在物理基础设施受到冲突威胁时面临严重的可用性风险。 受影响的基础设施是 AWS 中东中部区域的一部分，该区域由特定地理区域内的隔离数据中心位置组成。此类中断表明，如果整个地理区域受到损害，单个区域内的可用区可能不足以保障安全。
+libxml2 库的一位前维护者发布了一个名为 libxml2 Enterprise Edition 的新分支，采用 AGPL 许可证。此举将该特定版本的许可证从原始的宽松许可证更改为 copyleft 模型。 libxml2 是许多系统的关键依赖项，因此许可证变更会给下游用户带来重大的供应链和合规风险。此事件凸显了关于开源可持续性以及基础架构软件维护模型的持续紧张关系。 新版本托管在 Codeberg 上，明确采用 AGPL 许可，这与原始库的宽松许可证不同。用户在采用此分支之前必须验证其合规义务，特别是在专有软件环境中。
 
-rss · Lobsters · Mar 1, 19:22
+rss · Lobsters · Mar 2, 11:21
 
-**背景**: AWS 将其全球基础设施组织为区域，这是数据中心集群所在的全球物理位置。每个区域由多个隔离的可用区组成，旨在如果一个数据中心发生故障则提供冗余。站点可靠性工程 (SRE) 是一门使用软件工程方法管理 IT 运营并确保系统可用性的学科。
+**背景**: libxml2 是一个用于解析 XML 文档的软件库，也是 libxslt 库的基础。GNU Affero General Public License (GNU AGPL) 是一个免费的 copyleft 许可证，强制执行使用它的软件的权利。企业版通常利用双重许可模型来平衡开源访问与商业可持续性。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Site_reliability_engineering">Site reliability engineering - Wikipedia</a></li>
-<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Zones - Amazon Elastic Compute Cloud</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Libxml2">libxml 2 - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_Affero_General_Public_License">GNU Affero General Public License</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multi-licensing">Multi-licensing - Wikipedia</a></li>
+
+</ul>
+</details>
+
+**社区讨论**: 新闻项指出链接的 Lobsters 线程表明社区就开源可持续性和维护模型进行了实质性的辩论。用户正在讨论维护者更改许可证以资助其工作与基础库所期望的稳定性之间的影响。
+
+**标签**: `#libxml2`, `#licensing`, `#open-source`, `#supply-chain`, `#maintenance`
+
+---
+
+<a id="item-9"></a>
+## [Fabien Sanglard 搭建时期准确的 Quake PC](https://fabiensanglard.net/quake_pc/) ⭐️ 8.0/10
+
+Fabien Sanglard 发布了一份详细的技术指南，介绍如何组装和配置时期准确的硬件以专门运行 Quake 游戏引擎。 该项目为经典游戏开发中使用的历史硬件限制和系统优化技术提供了宝贵的教育见解。 这项工作侧重于复制原始的计算环境，以了解引擎如何与那个时代的特定硬件配置进行交互。
+
+rss · Lobsters · Mar 2, 10:46
+
+**背景**: Quake 是一款于 1996 年发布的开创性第一人称射击游戏，它推动了个人电脑 3D 图形的界限。Fabien Sanglard 是一位知名的软件工程师，以其对遗留游戏引擎源代码的广泛文档和分析而闻名。了解原始硬件背景有助于开发人员欣赏那个计算时代所面临的优化挑战。
+
+**标签**: `#Retro-computing`, `#Game Engines`, `#Systems Programming`, `#Hardware`, `#Graphics`
+
+---
+
+<a id="item-10"></a>
+## [John Regehr 测试 AI 修复的 C 编译器](https://john.regehr.org/writing/claude_c_compiler.html) ⭐️ 8.0/10
+
+John Regehr 进行了一项实验，使用 Fuzzing 找出 C 编译器中的 bug 并用 AI 工具修复。这一过程突出了应用于编译器等关键系统软件的新兴 Vibe coding 实践。 该实验提供了关于 AI 辅助调试在复杂软件工程任务中可靠性的实证数据。这很重要，因为编译器是基础工具，了解 AI 修复底层 bug 的能力会影响未来的开发工作流。 该项目涉及一个 Vibed C Compiler，意味着初始代码或修复是通过大型语言模型根据自然语言提示生成的。Regehr 具体利用了 Fuzzing 这种自动化测试技术来验证 AI 生成修复的正确性。
+
+rss · Lobsters · Mar 2, 19:24
+
+**背景**: Vibe coding 是一种软件开发实践，开发者向 AI 聊天机器人描述任务，由其在无需大量人工审查内部结构的情况下生成代码。Fuzzing 是一种自动化测试技术，向程序输入无效或随机数据以检测崩溃和漏洞。结合这些概念可以测试 AI 是否能在压力下可靠地维护软件完整性。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Vibe_coding">Vibe coding</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fuzzing">Fuzzing - Wikipedia</a></li>
+
+</ul>
+</details>
+
+**标签**: `#Compilers`, `#Fuzzing`, `#AI`, `#Software Engineering`, `#C`
+
+---
+
+<a id="item-11"></a>
+## [Anthropic Claude Cowork 在未警告情况下于 macOS 创建 10GB VM bundle](https://github.com/anthropics/claude-code/issues/22543) ⭐️ 7.0/10
+
+用户发现 Anthropic 的 Claude Cowork 功能会在 macOS 系统上静默创建一个 10GB 的 Linux VM bundle 用于沙箱隔离。Anthropic 工作人员确认该架构使用 Apple 的 Virtualization Framework 来隔离代理操作以确保安全。 这突显了在本地桌面与安全 AI 代理沙箱化相比云执行所需的重大资源权衡。它引发了关于 AI 工具应如何管理系统资源以及向非技术用户传达基础设施变更的更广泛辩论。 该 VM 为 Claude 提供了一个专用的计算机来编写软件和访问文件，同时维护网络控制和文件系统挂载。Anthropic 强调这种隔离平衡了代码生成的能力与授予主机文件系统访问权限的用户所需的安全性。
+
+hackernews · mystcb · Mar 2, 14:21
+
+**背景**: 虚拟机 (VMs) 允许在主机内运行单独的操作系统，通常用于开发环境中的安全隔离。Apple 的 Virtualization Framework 支持在 Apple silicon 上创建和管理 VM，Claude Cowork 等工具利用它进行沙箱化。AI 代理通常需要沙箱化以安全地执行代码，而不损害主机系统的完整性。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://claude.com/product/cowork">Cowork : Claude Code power for knowledge... | Claude by Anthropic</a></li>
+<li><a href="https://developer.apple.com/documentation/virtualization">Virtualization | Apple Developer Documentation</a></li>
+<li><a href="https://developer.nvidia.com/blog/practical-security-guidance-for-sandboxing-agentic-workflows-and-managing-execution-risk/">Practical Security Guidance for Sandboxing Agentic Workflows and ...</a></li>
+
+</ul>
+</details>
+
+**社区讨论**: 社区情绪不一，一些用户批评静默磁盘使用情况，而另一些用户则辩护称 VM 沙箱对于安全是必要的。Anthropic 工作人员直接参与解释了架构选择，指出在 VM 内进行开发是为了安全的标准做法。一些用户建议更好地 UI 警告文件系统访问，而不是移除沙箱。
+
+**标签**: `#AI Agents`, `#macOS`, `#Virtualization`, `#DevTools`, `#Security`
+
+---
+
+<a id="item-12"></a>
+## [Simon Willison 分享导出 Claude AI 所有记忆数据的 Prompt](https://simonwillison.net/2026/Mar/1/claude-import-memory/#atom-everything) ⭐️ 7.0/10
+
+Simon Willison 在他的博客上发布了一个特定的 Prompt，指示 Claude AI 将所有存储的记忆和上下文细节列在一个可复制的代码块中。该 Prompt 涵盖了指令、个人细节、项目、工具和偏好，且不进行摘要。 这为用户提供了一种审计和导出数据的实用方法，解决了随着 LLM 记忆功能成为标准而引发的关键隐私问题。它使用户能够验证 AI 在会话之间保留了关于他们的哪些信息。 该 Prompt 明确要求逐字保留用户的话语，并确认导出的集合是否完整。它针对语调指令、家庭细节和重复话题等特定类别，以确保全面提取。
+
+rss · Simon Willison · Mar 1, 11:21
+
+**背景**: AI Memory 指的是系统级存储，允许模型在会话之间保留信息，这与临时的 context window 不同。Prompt engineering 是构建自然语言输入以从生成式 AI 模型产生指定输出的过程。随着模型获得持久记忆，了解如何访问和控制这些数据对于用户治理变得至关重要。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://grokipedia.com/page/ai-memory">AI Memory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Prompt_engineering">Prompt engineering</a></li>
+
+</ul>
+</details>
+
+**标签**: `#AI Privacy`, `#Data Portability`, `#Prompt Engineering`, `#LLM Memory`, `#AI Safety`
+
+---
+
+<a id="item-13"></a>
+## [Simon Willison 倡导 Interactive Explanations 以减少 AI Cognitive Debt](https://simonwillison.net/guides/agentic-engineering-patterns/interactive-explanations/#atom-everything) ⭐️ 7.0/10
+
+Simon Willison 将 AI 代理编写代码导致的理解丧失定义为"cognitive debt"，并提出 interactive explanations（如动画可视化）来解决这一问题。他通过要求 Claude Code 创建一个动画 HTML 页面来解释 Rust word cloud 算法进行了演示。 这种方法防止 AI 生成的代码变成黑盒，确保开发者能够自信地推理和维护使用 agentic workflows 构建的复杂应用程序。它解决了 AI engineering 中一个关键的新兴挑战，即速度可能会损害长期的代码理解。 Willison 具体使用了滑块控制的动画来逐帧步进"Archimedean spiral placement"算法，以获得直观的理解。该解决方案涉及将输入文本持久化在 URL fragment 中，并允许将进行中的可视化下载为 PNG。
+
+rss · Simon Willison · Feb 28, 23:09
+
+**背景**: Agentic Engineering Patterns 指的是在开发工作流中管理自主编写或修改代码的 AI agents 的方法论。Cognitive debt 类似于 technical debt，但涉及人类开发者的心理模型而非代码质量本身。Interactive explanations 利用 AI capabilities 生成动态学习工具，而不是静态文档。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://simonwillison.net/guides/agentic-engineering-patterns/linear-walkthroughs/">Linear walkthroughs - Agentic Engineering Patterns</a></li>
+<li><a href="https://devblogs.co/posts/writing-about-agentic-engineering-patterns">Writing about Agentic Engineering Patterns</a></li>
+
+</ul>
+</details>
+
+**标签**: `#AI Engineering`, `#Agentic Workflows`, `#Technical Debt`, `#Code Understanding`, `#LLM`
+
+---
+
+<a id="item-14"></a>
+## [AWS 中东中央区域因军事冲突中断](https://health.aws.amazon.com/health/status) ⭐️ 7.0/10
+
+AWS 报告其中东中央区域（UAE）发生中断，据称是由影响基础设施的军事冲突引起的。这一事件标志着地缘战争直接影响公共云可用性的罕见案例。 此次中断强调了云基础设施面临的地缘政治风险脆弱性，企业需要制定稳健的多区域弹性策略。它突显了即使是 AWS 这样的大型提供商也无法完全保护客户免受特定区域物理冲突的影响。 此次事件具体影响中东 Central Zone，使其与涉及多个 Availability Zones 的完整 Region 中断区分开来。依赖该地理区域单 Zone 部署的用户面临即时服务不可用的情况。
+
+rss · Lobsters · Mar 1, 19:22
+
+**背景**: AWS 基础设施组织为 Regions，其中包含多个隔离的 Availability Zones (AZs) 以确保高可用性。Site Reliability Engineering (SRE) 实践旨在自动化操作并最小化 IT 风险，但物理破坏超出了典型的软件故障场景。理解 AZs 和 Regions 之间的分离对于设计能够承受本地灾难的系统至关重要。
+
+<details><summary>参考链接</summary>
+<ul>
 <li><a href="https://aws.amazon.com/about-aws/global-infrastructure/regions_az/">Global Infrastructure Regions & AZs</a></li>
+<li><a href="https://www.redhat.com/en/topics/devops/what-is-sre">What is SRE (site reliability engineering)? - Red Hat</a></li>
 
 </ul>
 </details>
@@ -205,182 +316,80 @@ rss · Lobsters · Mar 1, 19:22
 
 ---
 
-<a id="item-9"></a>
-## [研究揭示 Go 语言 X.509 证书验证中的边缘情况](https://danielmangum.com/posts/fooling-go-x509-certificate-verification/) ⭐️ 8.0/10
-
-这篇安全研究文章详细介绍了绕过或利用 Go 标准 X.509 证书验证实现中边缘情况的具体方法。它强调了可能允许攻击者欺骗验证过程的漏洞。 由于 Go 语言广泛用于基础设施和网络服务，其核心 crypto/x509 库中的缺陷会对许多系统的 TLS 安全构成重大风险。成功的利用可能会破坏依赖 Go 应用程序的安全连接的信任。 该研究侧重于标准库的实现而非第三方工具，针对用于路径验证的核心逻辑。具体的技术向量涉及利用边缘情况来触发验证算法中的意外行为。
-
-rss · Lobsters · Mar 1, 15:52
-
-**背景**: X.509 是公钥证书的标准格式，广泛用于 TLS/SSL 协议中以建立安全通信。Go 的 crypto/x509 包实现了该标准的一个子集，用于根据 RFC 5280 中的算法解析和验证证书路径。理解这些验证规则至关重要，因为浏览器和服务器依赖它们来验证身份。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://pkg.go.dev/crypto/x509">x 509 package - crypto / x 509 - Go Packages</a></li>
-<li><a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280 - Internet X.509 Public Key Infrastructure Certificate and ...</a></li>
-
-</ul>
-</details>
-
-**标签**: `#Go`, `#Security`, `#X.509`, `#TLS`, `#Vulnerability Research`
-
----
-
-<a id="item-10"></a>
-## [利用覆盖空间和双曲几何黑客超级马里奥 64](https://happel.ai/posts/covering-spaces-geometries-visualized/) ⭐️ 8.0/10
-
-该项目展示了使用覆盖空间和双曲几何技术在超级马里奥 64 引擎内实现非欧几里得几何。这代表了在修改经典游戏引擎以支持复杂数学结构方面的具体技术突破。 这项工作突出了高级数学与系统黑客技术的交集，展示了拓扑学如何应用于实时渲染环境。它通过扩展遗留软件中关卡设计和空间操作的可能性，影响了游戏工程社区。 该实现依赖于覆盖空间，其在局部表现为多个空间副本到自身的投影。它具体利用了双曲几何，其中欧几里得几何的平行公理被替换为允许通过一点的多条不相交线。
-
-rss · Lobsters · Mar 2, 08:50
-
-**背景**: 在拓扑学中，覆盖空间是拓扑空间之间的映射，在局部表现为多个空间副本到自身的投影。双曲几何是一种非欧几里得几何，其特征在于恒定的负高斯曲率，通常被描述为鞍点表面。这些概念传统上是抽象数学领域，但现在正被应用于交互式计算机图形和游戏引擎。理解它们需要知道空间规则如何不同于标准的欧几里得预期。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Covering_space">Covering space - Wikipedia</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Hyperbolic_geometry">Hyperbolic geometry</a></li>
-
-</ul>
-</details>
-
-**标签**: `#Game Engineering`, `#Mathematics`, `#Topology`, `#Reverse Engineering`, `#Computer Graphics`
-
----
-
-<a id="item-11"></a>
-## [StepSecurity 披露 AI 机器人攻击 GitHub Actions](https://www.stepsecurity.io/blog/hackerbot-claw-github-actions-exploitation) ⭐️ 8.0/10
-
-StepSecurity 发现了一种专门利用 GitHub Actions 工作流漏洞的新型 AI 驱动机器人。这一发现突显了自主 AI 代理被武器化以攻击自动化软件供应链的趋势。 这一发展标志着一个关键的新兴威胁向量，即 AI 代理利用 CI/CD 管道，影响全球的安全和 DevOps 团队。它强调了随着攻击者利用自主技术，自动化软件供应链中不断演变的风险。 该机器人利用自主能力识别并利用 CI/CD 管道中的工作流注入或权限配置错误。此类攻击可能会危及 GITHUB_TOKEN 变量以及在组织或仓库级别配置的默认权限。
-
-rss · Lobsters · Mar 1, 15:48
-
-**背景**: 软件供应链攻击针对可信的第三方供应商或服务，将恶意代码注入到许多客户使用的应用程序中。GitHub Actions 是一个 CI/CD 平台，可自动化软件工作流，通常依赖于可能易受攻击的预定义令牌和权限。自主 AI 代理越来越多地用于提高生产力，但当它们可以在无人监督的情况下行动时，会引入新的安全风险。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://www.crowdstrike.com/en-us/cybersecurity-101/cyberattacks/supply-chain-attack/">What Is a Supply Chain Attack? - CrowdStrike</a></li>
-<li><a href="https://github.blog/security/vulnerability-research/how-to-catch-github-actions-workflow-injections-before-attackers-do/">How to catch GitHub Actions workflow injections before ...</a></li>
-<li><a href="https://www.techtarget.com/searchenterpriseai/feature/Security-risks-in-agentic-AI-systems-and-how-to-evaluate-threats">9 Agentic AI Security Risks and How to Prevent Them | TechTarget</a></li>
-
-</ul>
-</details>
-
-**标签**: `#Cybersecurity`, `#GitHub Actions`, `#AI Agents`, `#CI/CD`, `#Supply Chain`
-
----
-
-<a id="item-12"></a>
-## [Simon Willison 分享导出 Claude AI 记忆数据的提示词](https://simonwillison.net/2026/Mar/1/claude-import-memory/#atom-everything) ⭐️ 7.0/10
-
-Simon Willison 发布了一种特定的提示词技术，允许用户将所有存储的 Claude AI 记忆和上下文导出为单个代码块。该方法使用户能够检索模型之前保存的个人详细信息、指令和项目数据。 这解决了 AI 数据可移植性的关键问题，让用户对自己的信息拥有更多控制权，并减少供应商锁定的风险。它使个人能够在生态系统发展时将个性化的 AI 上下文迁移到其他服务。 该提示词明确要求原文保存指令、个人详细信息、项目、工具和偏好设置，而不进行总结，并将所有内容输出到单个代码块中。建议用户在复制生成的内容后向模型确认导出的集合是否完整。
-
-rss · Simon Willison · Mar 1, 11:21
-
-**背景**: Claude 的 Memory 功能通过项目范围或一般聊天引用运行，而不是持久用户配置文件，允许模型回忆过去的互动。监管机构越来越认识到数据可移植性是保护消费者权利和促进 AI 平台间竞争的关键工具。随着 AI 记忆功能在不同服务中变得更加普遍，了解如何提取这些数据对于用户自主权变得至关重要。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://www.unite.ai/how-claude-solved-the-memory-problem/">How Claude Solved the Memory Problem - Unite.AI</a></li>
-<li><a href="https://dtinit.org/assets/DTI-Data-Portability-Compendium.pdf">THE PRESENT AND FUTURE OF DATA PORTABILITY</a></li>
-
-</ul>
-</details>
-
-**标签**: `#AI Memory`, `#Data Portability`, `#Prompt Engineering`, `#LLM`, `#Privacy`
-
----
-
-<a id="item-13"></a>
-## [Simon Willison 提出交互式解释缓解认知债务](https://simonwillison.net/guides/agentic-engineering-patterns/interactive-explanations/#atom-everything) ⭐️ 7.0/10
-
-Simon Willison 在其 Agentic Engineering Patterns 指南中引入了“交互式解释”模式，以帮助开发者理解 AI 代理生成的代码。他通过创建一个动画可视化来解释 Claude Code 生成的 Rust 词云算法，从而演示了这一方法。 这种方法解决了“认知债务”的风险，即开发者因依赖 AI 生成的实现而失去对代码库的理解。减轻这种债务对于保持软件的长期可维护性以及修改代理编写代码的信心至关重要。 该技术涉及提示 AI 工具构建动画或交互式演示，例如带有滑块的 HTML 页面，以逐步可视化算法逻辑。Willison 具体使用此方法来理解"Archimedean spiral placement"，因为之前的文本线性走查不足以提供直观理解。
-
-rss · Simon Willison · Feb 28, 23:09
-
-**背景**: Agentic Engineering Patterns 是 Simon Willison 编写的新指南，专注于与 AI 编码代理合作的最佳实践。Cognitive debt 是一个类似于 technical debt 的概念，指的是不理解系统内部结构所带来的精神负担。Interactive explanations 利用 AI 生成前端代码的能力，为后端逻辑创建学习辅助工具。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://simonwillison.net/guides/agentic-engineering-patterns/interactive-explanations/">Interactive explanations - Agentic Engineering Patterns - Simon Willison's Weblog</a></li>
-<li><a href="https://simonwillison.net/guides/agentic-engineering-patterns/linear-walkthroughs/">Linear walkthroughs - Agentic Engineering Patterns</a></li>
-<li><a href="https://pub.towardsai.net/agentic-engineering-is-not-vibe-coding-the-patterns-that-actually-work-defb57f2c5ec">Agentic Engineering Patterns : What Actually Works... | Towards AI</a></li>
-
-</ul>
-</details>
-
-**标签**: `#AI Engineering`, `#LLM Agents`, `#Technical Debt`, `#Software Maintenance`
-
----
-
-<a id="item-14"></a>
-## [GNU Guix 成功实现 Hurd 内核 64 位移植](https://guix.gnu.org/en/blog/2026/the-64-bit-hurd/) ⭐️ 7.0/10
-
-GNU Guix 宣布成功将 GNU Hurd 内核移植到 64 位架构，有效消除了该操作系统的一个主要历史限制。这一里程碑使 Hurd 能够在需要 64 位支持的现代硬件上运行。 这一进展对 GNU 生态系统意义重大，因为它使 Hurd 内核能够支持几十年来无法访问的现代硬件标准。它重新激发了系统程序员将 Hurd 作为 Unix 内核的可行自由软件替代品的兴趣。 该移植消除了之前的 32 位限制，这是在当代机器上运行该操作系统的障碍。虽然摘要中未详述具体版本号，但这代表了 Guix 发行版在 Hurd 上的功能突破。
-
-rss · Lobsters · Mar 1, 09:39
-
-**背景**: GNU Hurd 是 GNU 项目自 1990 年以来开发的一组微内核服务器，旨在作为 Unix 内核的自由软件替代品。与单体 Linux 内核不同，Hurd 使用微内核架构，组件作为独立服务器运行。GNU Guix 是一个受 Nix 启发的功能型包管理器和系统发行版，用于管理 GNU/Linux 及现在的 Hurd 系统上的软件。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/GNU_Hurd">GNU Hurd - Wikipedia</a></li>
-<li><a href="https://en.wikipedia.org/wiki/GNU_Guix">GNU Guix - Wikipedia</a></li>
-
-</ul>
-</details>
-
-**社区讨论**: 根据提供的新闻元数据，Lobsters 链接表明系统程序员之间进行了积极参与的讨论，尽管受众群体较小。整体情绪强调了这一技术里程碑对专业社区的重要性。
-
-**标签**: `#GNU Hurd`, `#Guix`, `#Operating Systems`, `#Free Software`, `#Systems Programming`
-
----
-
 <a id="item-15"></a>
-## [BEAM 与 OTP 在基于进程并发中的持续相关性分析](https://variantsystems.io/blog/beam-otp-process-concurrency) ⭐️ 7.0/10
+## [2025 年 Rust 状态调查结果正式发布](https://blog.rust-lang.org/2026/03/02/2025-State-Of-Rust-Survey-results/) ⭐️ 7.0/10
 
-这篇文章论证了 BEAM 虚拟机和 OTP 框架仍然是基于进程并发模型的正确选择。它在现代并发挑战的背景下重申了 Erlang 系统的设计原则。 这很重要，因为构建可靠的并发系统很困难，而 BEAM 为隔离性和容错性提供了经过验证的模型。寻求构建健壮分布式系统的开发人员可以从重温这些既定的架构模式中受益。 讨论侧重于 BEAM 虚拟机的轻量级进程相较于操作系统线程的具体优势。它强调了 OTP 标准如何促进在此运行时环境中构建可维护的应用程序。
+Rust 团队正式发布了 2025 年社区调查的结果，强调了显著的生态系统增长和开发者优先级的转变。这份年度报告提供了关于系统编程社区内采用率、满意度和使用趋势的最新数据。 这些发现提供了有价值的行业数据，影响工具开发、企业采用策略以及 Rust 项目自身的路线图规划。了解这些趋势有助于利益相关者评估该语言的成熟度及其与其他系统编程语言的竞争力。 调查结果侧重于生态系统增长和开发者优先级等关键指标，尽管具体的统计细分包含在完整报告中。作为官方年度出版物，此数据作为 Rust 社区健康和方向的主要参考点。
 
-rss · Lobsters · Mar 2, 04:18
+rss · Lobsters · Mar 2, 15:15
 
-**背景**: BEAM 是在 Erlang 运行时系统 (ERTS) 内执行字节码的虚拟机。OTP 代表开放电信平台，由用于构建中间件的 Erlang 库和设计原则组成。它们共同构成了通常被称为 Erlang/OTP 的核心基础设施，用于开发分布式系统。
+**背景**: Rust 状态调查是 Rust 项目团队每年发起的一项倡议，旨在收集全球开发者的反馈。它追踪该语言在各行业的采用情况，识别开发者体验中的痛点，并为未来的开发工作提供信息。这种背景对于在更广泛的软件工程格局中解读报告的增长和优先级至关重要。
 
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine)">BEAM (Erlang virtual machine) - Wikipedia</a></li>
-<li><a href="https://www.erlang.org/">Erlang/OTP: Index</a></li>
-<li><a href="https://learnyousomeerlang.com/what-is-otp">What is OTP? | Learn You Some Erlang for Great Good!</a></li>
-
-</ul>
-</details>
-
-**社区讨论**: 新闻项包含一个指向 Lobste.rs 讨论线程的链接，社区在那里验证了该主题的实质性。虽然未提供具体的评论内容，但该链接表明了对所提出的架构论点的有效参与。
-
-**标签**: `#Concurrency`, `#BEAM`, `#OTP`, `#Systems Design`, `#Erlang`
+**标签**: `#Rust`, `#Survey`, `#Systems Programming`, `#Community`, `#Industry Trends`
 
 ---
 
 <a id="item-16"></a>
-## [Linux 系统硬件热插拔事件处理的技术分析](https://arcanenibble.github.io/hardware-hotplug-events-on-linux-the-gory-details.html) ⭐️ 7.0/10
+## [Narwhal v0.5.0 切换至 Monoio 以利用 io_uring 性能](https://github.com/narwhal-io/narwhal/releases/tag/narwhal-0.5.0) ⭐️ 7.0/10
 
-一篇新的技术文章已发布，探讨了 Linux 操作系统中硬件热插拔事件处理的复杂性。该出版物详细说明了管理这些系统事件所涉及的具体挑战。 对于依赖复杂底层 Linux 系统编程的基础设施工程师来说，这一主题意义重大。有效的事件处理确保了在生产环境中硬件配置动态变化时的稳定性。 讨论侧重于实现的复杂细节，表明要深入了解内核和用户空间交互。读者应该预期有关 Linux Kernel 和硬件基础设施主题的技术细节。
+Narwhal v0.5.0 已将其底层异步运行时从 Tokio 迁移至 Monoio。这一变更使得该 pub/sub 服务器能够完全基于 Linux io_uring 运行，以提升 I/O 性能。 这一架构转变展示了 Rust 生态系统中向基于 io_uring 网络的实际行动，可能为高吞吐系统提供更低延迟。它突显了像 Monoio 这样的替代运行时相比标准 Tokio 的日益成熟。 该项目仍处于 alpha 状态，表明核心正在稳定但仍可能需要调整。作者特别邀请有调整基于 io_uring 服务器经验的开发者提供反馈。
+
+rss · Lobsters · Mar 2, 12:26
+
+**背景**: io_uring 是一种现代 Linux 内核异步 I/O 接口，它使用环缓冲区来减少系统调用开销。Tokio 是 Rust 中最广泛采用的异步运行时，而 Monoio 是一个旨在利用 io_uring 而不依赖其他运行时的较新运行时。理解这些运行时对于涉及高性能网络的 Rust 系统编程至关重要。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://unixism.net/loti/what_is_io_uring.html">What is io_uring? — Lord of the io_uring documentation - Unixism</a></li>
+<li><a href="https://github.com/bytedance/monoio">GitHub - bytedance/ monoio : Rust async runtime based on io -uring.</a></li>
+<li><a href="https://tokio.rs/">Tokio - An asynchronous Rust runtime</a></li>
+
+</ul>
+</details>
+
+**标签**: `#Rust`, `#io_uring`, `#Pub/Sub`, `#Systems Programming`, `#Async Runtime`
+
+---
+
+<a id="item-17"></a>
+## [分析涵盖了 Linux 硬件热插拔事件及其复杂细节](https://arcanenibble.github.io/hardware-hotplug-events-on-linux-the-gory-details.html) ⭐️ 7.0/10
+
+一篇新的技术文章深入探讨了 Linux 处理硬件热插拔事件的具体机制。它研究了涉及设备初始化和移除的底层内核接口和用户空间交互。 理解这些机制对于从事 Linux 基础设施和设备驱动程序工作的系统程序员至关重要。正确处理可确保在动态添加或移除硬件时的系统稳定性和正确的设备管理。 该分析涵盖了从 devfs 等旧机制到现代 sysfs 和基于 netlink 的 uevents 的转变。它可能详细说明了像 udev 这样的守护进程如何监听这些内核信号以管理设备节点。
 
 rss · Lobsters · Mar 2, 09:24
 
-**背景**: 硬件热插拔允许在不重启计算机系统的情况下连接或断开设备。在 Linux 中，此功能依赖于内核子系统和用户空间守护进程之间的协调。了解此架构对于使用动态硬件的系统管理员和开发人员至关重要。
+**背景**: Linux 硬件热插拔允许在不重启的情况下添加或移除设备，历史上通过 /sbin/hotplug 等接口管理，现在通过 netlink 套接字管理。udev 守护进程通常监听这些内核 uevents 以在用户空间创建或移除设备文件。该系统取代了旧的 devfs 机制，后者已在 2.6.16 版本内核中被移除。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Udev">udev - Wikipedia</a></li>
+<li><a href="https://www.kernel.org/doc/local/hotplug-history.html">The history of hotplug</a></li>
+<li><a href="https://lwn.net/Articles/242046/">Documentation for sysfs, hotplug , and firmware loading. [LWN.net]</a></li>
+
+</ul>
+</details>
 
 **标签**: `#Linux`, `#Systems Programming`, `#Kernel`, `#Hardware`, `#Infrastructure`
 
 ---
 
-<a id="item-17"></a>
-## [随机输入/输出操作性能惩罚的分析](https://vondra.me/posts/the-real-cost-of-random-io/) ⭐️ 7.0/10
+<a id="item-18"></a>
+## [修改超级马里奥 64 实现非欧几何效果](https://happel.ai/posts/covering-spaces-geometries-visualized/) ⭐️ 7.0/10
 
-这篇技术文章探讨了存储系统中随机输入/输出操作相关的具体性能惩罚及其机械现实。它详细分解了为什么随机 I/O 的成本显著高于顺序访问。 理解这些成本对于优化存储性能和吞吐量的数据库管理员及系统工程师至关重要。它突出了影响数据库内部结构和整体系统工程决策的基本瓶颈。 该分析可能涵盖了基准测试结果以及决定 I/O 行为的存储硬件物理限制。读者应注意具体指标取决于完整帖子中讨论的底层硬件架构。
+一位开发者修改了超级马里奥 64 引擎以利用覆盖空间，从而在这个遗留游戏中实现了非欧几里得几何和双曲几何。这项技术探索可视化了拓扑概念如何改变标准的游戏运动和空间。 该项目通过将高级拓扑学应用于知名的遗留引擎，展示了显著的技术创造力，将抽象数学与互动娱乐相结合。它突出了受双曲几何启发的潜在新游戏机制和渲染技术。 该项目涉及逆向工程遗留的超级马里奥 64 引擎，以支持原本不为游戏设计的拓扑结构。技术可视化展示了这些覆盖空间如何允许在通常断开的区域之间连续移动。
 
-rss · Lobsters · Mar 1, 12:56
+rss · Lobsters · Mar 2, 08:50
 
-**背景**: 随机 I/O 指的是请求的数据分散在存储设备不同物理位置的数据访问模式。这与顺序 I/O 形成对比，后者以连续块读写数据，效率更高。机械硬盘甚至 SSD 在处理非连续请求时都会经历显著的延迟惩罚。
+**背景**: 在拓扑学中，覆盖空间是拓扑空间之间的映射，直观上局部表现为多个空间副本投影到自身上。双曲几何与标准几何不同，因为直线会发散且新空间呈指数级创造。这一概念已在 Hyperbolica 等实验性标题中得到探索，以创造有趣的游戏后果。
 
-**标签**: `#Systems Engineering`, `#Storage Performance`, `#I/O`, `#Database Internals`, `#Benchmarking`
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Covering_space">Covering space - Wikipedia</a></li>
+<li><a href="https://www.gamedeveloper.com/design/q-a-the-mind-bending-geometry-of-non-euclidean-experiment-hyperbolica-">Q&A: The mind-bending geometry of non-Euclidean ... - Game Developer</a></li>
+
+</ul>
+</details>
+
+**标签**: `#Game Development`, `#Mathematics`, `#Computer Graphics`, `#Hyperbolic Geometry`, `#Reverse Engineering`
 
 ---
