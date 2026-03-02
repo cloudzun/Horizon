@@ -105,46 +105,46 @@ class HorizonOrchestrator:
             # 7. Generate and save daily summary (Chinese only)
             today = datetime.utcnow().strftime("%Y-%m-%d")
             lang = "zh"  # Only generate Chinese version
-                summary = await self._generate_summary(important_items, today, len(all_items), language=lang)
+            summary = await self._generate_summary(important_items, today, len(all_items), language=lang)
 
-                # Save to data/summaries/
-                summary_path = self.storage.save_daily_summary(today, summary, language=lang)
-                self.console.print(f"💾 Saved {lang.upper()} summary to: {summary_path}\n")
+            # Save to data/summaries/
+            summary_path = self.storage.save_daily_summary(today, summary, language=lang)
+            self.console.print(f"💾 Saved {lang.upper()} summary to: {summary_path}\n")
 
-                # Copy to docs/ for GitHub Pages
-                try:
-                    from pathlib import Path
+            # Copy to docs/ for GitHub Pages
+            try:
+                from pathlib import Path
 
-                    post_filename = f"{today}-horizon-{lang}.md"
-                    posts_dir = Path("docs/_posts")
-                    posts_dir.mkdir(parents=True, exist_ok=True)
+                post_filename = f"{today}-horizon-{lang}.md"
+                posts_dir = Path("docs/_posts")
+                posts_dir.mkdir(parents=True, exist_ok=True)
 
-                    dest_path = posts_dir / post_filename
+                dest_path = posts_dir / post_filename
 
-                    # Add Jekyll front matter
-                    front_matter = (
-                        "---\n"
-                        "layout: default\n"
-                        f"title: \"Horizon 每日速递：{today}\"\n"
-                        f"date: {today}\n"
-                        f"lang: {lang}\n"
-                        "---\n\n"
-                    )
+                # Add Jekyll front matter
+                front_matter = (
+                    "---\n"
+                    "layout: default\n"
+                    f"title: \"Horizon 每日速递：{today}\"\n"
+                    f"date: {today}\n"
+                    f"lang: {lang}\n"
+                    "---\n\n"
+                )
 
-                    # Strip leading H1 header to avoid duplication with Jekyll title
-                    summary_content = summary
-                    first_line = summary_content.strip().split("\n")[0]
-                    if first_line.startswith("# "):
-                        parts = summary_content.split("\n", 1)
-                        if len(parts) > 1:
-                            summary_content = parts[1].strip()
+                # Strip leading H1 header to avoid duplication with Jekyll title
+                summary_content = summary
+                first_line = summary_content.strip().split("\n")[0]
+                if first_line.startswith("# "):
+                    parts = summary_content.split("\n", 1)
+                    if len(parts) > 1:
+                        summary_content = parts[1].strip()
 
-                    with open(dest_path, "w", encoding="utf-8") as f:
-                        f.write(front_matter + summary_content)
+                with open(dest_path, "w", encoding="utf-8") as f:
+                    f.write(front_matter + summary_content)
 
-                    self.console.print(f"📄 Copied {lang.upper()} summary to GitHub Pages: {dest_path}\n")
-                except Exception as e:
-                    self.console.print(f"[yellow]⚠️  Failed to copy {lang.upper()} summary to docs/: {e}[/yellow]\n")
+                self.console.print(f"📄 Copied {lang.upper()} summary to GitHub Pages: {dest_path}\n")
+            except Exception as e:
+                self.console.print(f"[yellow]⚠️  Failed to copy {lang.upper()} summary to docs/: {e}[/yellow]\n")
 
             self.console.print("[bold green]✅ Horizon completed successfully![/bold green]")
 
