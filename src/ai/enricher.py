@@ -8,6 +8,7 @@ For items that pass the score threshold, this module:
 import json
 import sys
 import os
+import asyncio
 from typing import List
 from tenacity import retry, stop_after_attempt, wait_exponential
 from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCompleteColumn
@@ -24,15 +25,18 @@ from ..models import ContentItem
 class ContentEnricher:
     """Enriches high-scoring content items with background knowledge."""
 
-    def __init__(self, ai_client: AIClient):
+    def __init__(self, ai_client: AIClient, concurrency: int = 5):
         self.client = ai_client
+        self.concurrency = concurrency
 
     async def enrich_batch(self, items: List[ContentItem]) -> None:
-        """Enrich items in-place with background knowledge.
+        """Enrich items in-place with background knowledge (concurrent).
 
         Args:
             items: Content items to enrich (modified in-place)
         """
+        semaphore = asyncio.Semaphore(self.concurrency)
+
         with Progress(
             SpinnerColumn(),
             TextColumn("[progress.description]{task.description}"),
@@ -42,12 +46,15 @@ class ContentEnricher:
         ) as progress:
             task = progress.add_task("Enriching", total=len(items))
 
-            for item in items:
-                try:
-                    await self._enrich_item(item)
-                except Exception as e:
-                    print(f"Error enriching item {item.id}: {e}")
-                progress.advance(task)
+            async def enrich_one(item: ContentItem) -> None:
+                async with semaphore:
+                    try:
+                        await self._enrich_item(item)
+                    except Exception as e:
+                        print(f"Error enriching item {item.id}: {e}")
+                    progress.advance(task)
+
+            await asyncio.gather(*[enrich_one(item) for item in items])
 
     async def _web_search(self, query: str, max_results: int = 3) -> list:
         """Search the web for context via DuckDuckGo.
@@ -111,7 +118,7 @@ class ContentEnricher:
 
         Steps:
         1. Ask AI which concepts in the news need explanation
-        2. Search the web for those concepts
+        2. Search the web for those concepts (concurrently)
         3. Ask AI to generate background based on search results
 
         Args:
@@ -131,13 +138,18 @@ class ContentEnricher:
         # Step 1: AI identifies concepts to explain
         queries = await self._extract_concepts(item, content_text)
 
-        # Step 2: Search web for each concept
+        # Step 2: Search web for each concept (concurrently)
         all_results = []
         web_sections = []
-        for query in queries:
-            results = await self._web_search(query)
-            all_results.extend(results)
-            if results:
+        if queries:
+            search_results = await asyncio.gather(
+                *[self._web_search(q) for q in queries],
+                return_exceptions=True,
+            )
+            for query, results in zip(queries, search_results):
+                if isinstance(results, Exception) or not results:
+                    continue
+                all_results.extend(results)
                 lines = [f"- [{r['title']}]({r['url']}): {r['body']}" for r in results]
                 web_sections.append(f"**{query}:**\n" + "\n".join(lines))
         web_context = "\n\n".join(web_sections) if web_sections else ""
