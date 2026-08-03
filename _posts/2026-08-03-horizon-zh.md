@@ -5,339 +5,322 @@ date: 2026-08-03
 lang: zh
 ---
 
-> 📅 2026-08-03 · 从 56 条资讯中精选出 15 条重要内容
+> 📅 2026-08-03 · 从 57 条资讯中精选出 14 条重要内容
 
 ---
 
-1. [NetBSD 11.0 正式发布，全新主版本上线](#item-1) ⭐️ 9.0/10
-2. [Lean 内核健全性错误 #14576 事后分析发布](#item-2) ⭐️ 9.0/10
-3. [卡帕西展示 AI 生成 3D 鹈鹕，引发 HN 热议再现性与基准](#item-3) ⭐️ 8.0/10
-4. [Kakehashi：实验性项目，让 macOS 二进制在 Linux ARM 上运行](#item-4) ⭐️ 8.0/10
-5. [OpenAI 称内部模型 Astra 解决十道数学难题](#item-5) ⭐️ 8.0/10
-6. [TP-Link TL-841N 路由器获得 root 权限，发现重置后仍有效的硬编码凭据](#item-6) ⭐️ 8.0/10
-7. [eBay 安全团队骚扰批评者致 5600 万美元赔偿](#item-7) ⭐️ 7.0/10
-8. [AI 公开信：开放权重模型政策引发业界对立](#item-8) ⭐️ 7.0/10
-9. [Laguna S2.1、Inkling 与 Kimi K3 展示开放模型前沿效用](#item-9) ⭐️ 7.0/10
-10. [解析 C 语言的 sizeof 运算符为何出奇困难](#item-10) ⭐️ 7.0/10
-11. [手动重打 LLM 生成代码，预防认知债务](#item-11) ⭐️ 7.0/10
-12. [Rust 新 std::simd API 加速浮点运算](#item-12) ⭐️ 7.0/10
-13. [C++26 新容器 std::hive 性能实测：到底有多快？](#item-13) ⭐️ 7.0/10
-14. [Arch Linux 开发者 linderud 宣布辞去项目职务](#item-14) ⭐️ 7.0/10
-15. [没有数学家的数学：当机器来做数学](#item-15) ⭐️ 7.0/10
+1. [OpenAI 用 Astra 破解十年未解数学难题](#item-1) ⭐️ 8.0/10
+2. [NetBSD 11.0 发布，公开已知安全问题](#item-2) ⭐️ 8.0/10
+3. [没有数学家的数学](#item-3) ⭐️ 8.0/10
+4. [Lean 内核健全性漏洞 #14576 事后分析：AI 发现的 Collatz 证明伪造 False](#item-4) ⭐️ 8.0/10
+5. [Karpathy 的 Pelican 推文引发 AI 物理世界基准测试热议](#item-5) ⭐️ 7.0/10
+6. [Kakehashi：在 Linux ARM 上运行 macOS 二进制的实验性用户态项目](#item-6) ⭐️ 7.0/10
+7. [eBay 骚扰事件致 5600 万美元赔偿](#item-7) ⭐️ 7.0/10
+8. [AI 公开信：开放权重与蒸馏引发辩论](#item-8) ⭐️ 7.0/10
+9. [开源模型盘点#23：Laguna S2.1、Inkling、Kimi K3 推进帕累托前沿](#item-9) ⭐️ 7.0/10
+10. [C 语言 sizeof 的解析歧义：解析为何出奇困难](#item-10) ⭐️ 7.0/10
+11. [Rust 1.98 新增代数浮点运算符，加速数值计算](#item-11) ⭐️ 7.0/10
+12. [评测 C++26 新增的 std::hive 容器性能](#item-12) ⭐️ 7.0/10
+13. [写操作遇到 EPIPE 通常意味着设计缺陷](#item-13) ⭐️ 7.0/10
+14. [破解 TP-Link TL-841N 固件发现硬编码重置持久凭据](#item-14) ⭐️ 7.0/10
 
 ---
 
 <a id="item-1"></a>
-## [NetBSD 11.0 正式发布，全新主版本上线](https://blog.netbsd.org/tnf/entry/netbsd_11_0_released) ⭐️ 9.0/10
+## [OpenAI 用 Astra 破解十年未解数学难题](https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything) ⭐️ 8.0/10
 
-NetBSD 11.0 已正式发布，公告刊登在 NetBSD 官方博客上。作为这款 Unix 类操作系统的新主版本，它标志着该项目的一个重要里程碑。 作为一款历史悠久、被广泛使用的 Unix 类操作系统的主版本发布，NetBSD 11.0 对其用户和开发者社区意义重大。它表明该项目仍在积极开发之中，并继续支持其广泛的硬件平台。 该公告发布在 NetBSD 官方博客（blog.netbsd.org）上，并附有 lobste.rs 上的讨论帖链接。NetBSD 以高度可移植性著称，支持从 64 位 x86 服务器和 PC 到多种其他硬件在内的众多平台。
+OpenAI 使用其下一代主要模型的内部版本 Astra，为十道至少十年未取得进展的数学问题找到了解决方案，每个问题花费不到 2,000 美元。相关成果已通过 Lean 4 形式化证明、论文和一份由 LLM 生成的 PDF（重建证明过程）发布。 这标志着大型语言模型在原创数学研究中的应用迈出了重要一步，可能加速那些多年停滞不前的领域取得进展。结合 Anthropic 的 Mythos Preview 发现密码学弱点的事件，这预示着 AI 工具助力基础科学突破的新时代。 OpenAI 声称按 GPT-5.6 Sol 的 token 价格计算，每个问题花费不到 2,000 美元，但未透露有多少问题尝试后未获成功。openai/ten-proofs 代码库包含 Lean 4 形式化证明，该项目还产出了一篇论文和一份基于未公开推理轨迹、由 LLM 生成的 PDF；博主表示希望能看到所使用的提示词。
 
-rss · Lobsters · Aug 1, 17:57
+rss · Simon Willison · Aug 1, 20:34
 
-**背景**: NetBSD 是一款免费、快速、安全且高度可移植的 Unix 类开源操作系统，基于 Berkeley Software Distribution（BSD）发展而来。它支持众多平台，从 64 位 x86 服务器和 PC 到嵌入式设备及老旧硬件均可运行，因此在各种环境中广受欢迎。
+**背景**: AI 辅助数学是一个快速发展的领域，像 Lean 4 这样的交互式定理证明器被用于正式验证证明。此前，Anthropic 的 Claude Mythos Preview 于 2026 年 4 月 7 日发布，但因网络安全风险未公开提供，据报道它花费了 10 万美元的 token 发现了密码学弱点。数学家陶哲轩曾描述“大数学”（big mathematics）的未来——人类与机器之间大规模、去中心化的协作，由 AI 承担大部分技术性繁琐工作，而人类负责创造性部分。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/NetBSD">NetBSD - Wikipedia</a></li>
-<li><a href="https://netbsd.org/docs/guide/en/netbsd.html">The NetBSD Guide</a></li>
+<li><a href="https://www.nxcode.io/resources/news/claude-mythos-preview-anthropic-most-powerful-model-2026">Claude Mythos Preview : Anthropic 's Most Powerful AI... | NxCode</a></li>
+<li><a href="https://red.anthropic.com/2026/mythos-preview/">Claude Mythos Preview \ red. anthropic .com</a></li>
+<li><a href="https://www.emergentmind.com/topics/reasoning-traces">Reasoning Traces : Analysis & Applications</a></li>
 
 </ul>
 </details>
 
-**标签**: `#NetBSD`, `#Operating Systems`, `#Release`, `#Unix-like`
+**标签**: `#mathematics`, `#theoretical computer science`, `#artificial intelligence`, `#LLM research`, `#Anthropic`
 
 ---
 
 <a id="item-2"></a>
-## [Lean 内核健全性错误 #14576 事后分析发布](https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/) ⭐️ 9.0/10
+## [NetBSD 11.0 发布，公开已知安全问题](https://blog.netbsd.org/tnf/entry/netbsd_11_0_released) ⭐️ 8.0/10
 
-2026 年 8 月 1 日，Leonardo de Moura 就 Lean 定理证明器内核中的健全性错误 #14576 发布了一份事后分析，剖析了该错误的成因及修复方式。这份事后分析是 Lean 维护其证明检查核心可信度的持续努力的一部分。 由于 Lean 的内核是检查每个证明的小型可信组件，健全性错误意味着系统可能接受无效定理，从而动摇人们对形式化验证的信任。这对所有使用 Lean 进行数学、软件验证或安全关键证明的人都很重要，因为内核健全性是整个系统保证的基石。 Lean 是一款开源定理证明器，最初由 Microsoft Research 和 Carnegie Mellon University 开发，其核心是一个基于依赖类型理论的小型可信内核。所提供的新闻内容未包含该事后分析的技术细节，因此本分析无法提供错误 #14576 的确切触发条件与修复方式。
+NetBSD 项目于 2026 年 8 月 1 日宣布发布 NetBSD 11.0，这是一个包含新安装镜像和简化发布流程的重大版本更新。该版本特意推迟以等待第三方组件稳定，尽管仍存在未修复的安全问题，项目选择公开发布，并计划在 11.1 中修复。 作为一款历史悠久的开源操作系统的重要版本，NetBSD 11.0 将影响其在众多硬件平台上的用户和开发者社区。该项目决定公开未解决的安全问题，也反映出 AI 辅助漏洞发现正在改变整个开源生态的发布实践。 安装镜像现拆分为小于 700MB 的 CD-ROM 镜像和完整 DVD 镜像，使用 USB 等闪存介质时必须使用 .img 文件。目前已知未修复的安全问题涉及 hdaudio(4) 的 ioctl 权限检查、ipfilter 的空指针解引用以及 pf 分片重组中的 use-after-free；项目计划在两个月内发布 11.1。
 
-rss · Lobsters · Aug 1, 21:51
+rss · Lobsters · Aug 1, 17:57
 
-**背景**: 像 Lean 这样的定理证明器允许用户形式化数学定义、定理和证明，并机械地检查每个证明的正确性。内核被刻意保持小而可信，因为其中的任何错误都可能让一个假命题被当作定理接受。健全性是指系统永远不会证明假命题的性质，因此内核健全性错误在形式化验证社区中被视为重大事件。此类错误的事后分析有助于社区理解保证是如何被破坏的，以及如何防止类似问题再次发生。
+**背景**: NetBSD 是一个免费开源、类 Unix 的操作系统，以可移植性强和支持广泛的硬件架构著称。主要版本通过发布候选版本和签名校验和来准备，项目使用 U-Boot（一种开源引导加载程序）在基于 ARM 的设备上引导 NetBSD，例如从 SD 卡或 NAND flash 启动的设备。公告中提到的“pullup requests”是指被挑选合并到稳定维护分支、用于未来补丁版本的改动。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://leodemoura.github.io/files/lean_cade25.pdf">leodemoura.github.io/files/ lean _cade25.pdf</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Formal_verification">Formal verification - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Das_U-Boot">Das U-Boot - Wikipedia</a></li>
 
 </ul>
 </details>
 
-**标签**: `#Lean`, `#theorem proving`, `#formal verification`, `#soundness`, `#postmortem`
+**标签**: `#NetBSD`, `#operating system`, `#release`, `#open source`
 
 ---
 
 <a id="item-3"></a>
-## [卡帕西展示 AI 生成 3D 鹈鹕，引发 HN 热议再现性与基准](https://twitter.com/karpathy/status/2083749667410727319) ⭐️ 8.0/10
+## [没有数学家的数学](https://borretti.me/article/mathematics-without-mathematicians) ⭐️ 8.0/10
 
-Andrej Karpathy 发布了一条展示 AI 生成 3D 鹈鹕的推文，迅速引发了 Hacker News 上 336 条评论的讨论。讨论焦点在于这一结果揭示了模型对物理世界的理解程度，以及此类演示能否被复现。 这一演示凸显了从简单图像生成转向 3D 生成的趋势，后者正成为衡量物理世界理解能力的新型定性基准。同时，它也再次点燃了关于 AI 可复现性的长期担忧，因为原始提示词并未公开。 评论者指出，缺失提示词使该结果无法复现，这与之前类似演示（如 Simon 的鹈鹕）不同。有用户用 Claude Opus 5 测试一段受版权保护的文本，发现 AI 拒绝逐字复现，这为可复现性讨论又添了一层复杂性。
+OpenAI 宣布，一个尚未发布的模型解决了数学中的十个开放问题，其中包括编码理论中的一个。本文作者对这一公告进行反思，并认为关于人类数学家仍将保持相关性的常见“应对”说法很可能被现实推翻。 如果这一消息得到证实，则表明 AI 很快将在发现层面超越人类数学家，从而改变数学以及依赖数学的科学领域。作者认为，数学是“科学的伟大动力机”，因此超越人类的数学家具有实质性的实用价值——这与超越人类的国际象棋引擎不同。 作者承认自己只能判断编码理论的结果很重要，其他结果则信赖数学家的评价。文章列举并反驳了几种“应对”心态，例如“我们将引导 AI”“我们将传授 AI 发现的数学”和“我们将决定如何收录这些成果”，并指出 AI 的证明可能以 Lean 的形式呈现。
 
-hackernews · delichon · Aug 2, 04:05
+rss · Lobsters · Aug 2, 09:30
 
-**背景**: 世界模型（world model）是一类构建环境内部表征、并模拟环境随时间变化的 AI 系统，可帮助智能体理解物理规律与因果关系。文本生成 3D（text-to-3D）是新兴应用，模型可根据自然语言提示生成 3D 资产。可复现性一直是 AI 研究中的难题，因为提示词、模型版本、代码依赖和运行环境往往没有被完整记录。
+**背景**: 开放问题（open problems）是指研究人员尚未证明的未解数学问题。形式化数学使用可被计算机验证的语言（如 Lean）来表达定义和证明，从而实现自动化检查以及 AI 辅助证明。编码理论（coding theory）是文章提到的领域之一，研究用于错误检测、纠错和高效数据传输的编码设计。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/World_model_(artificial_intelligence)">World model (artificial intelligence)</a></li>
-<li><a href="https://domino.ai/blog/why-ai-reproducibility">Why AI reproducibility is the holy grail of good governance</a></li>
-<li><a href="https://arxiv.org/html/2407.10239v1">What is Reproducibility in Artificial Intelligence and Machine Learning Research?</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Coding_theory">Coding theory</a></li>
+<li><a href="https://formal-mathematics.github.io/intro.html">A course on the formalization of mathematics , using Lean4.</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 评论者观点不一：有人批评输出质量不高，也有人如 jmugan 认为这恰恰是关键，主张将此类 3D 演示视为衡量物理理解能力的新定性基准。可复现性是最主要的担忧，consumer451 指出该演示缺少提示词，而 Simon 的鹈鹕演示则有。darrinm 补充说，像“创建一个弹球游戏”这样简单的提示仍难倒前沿 LLM，说明当前模型缺乏稳健的物理推理能力。
-
-**标签**: `#AI`, `#LLM`, `#3D generation`, `#benchmark`, `#generative models`
+**标签**: `#AI`, `#mathematics`, `#OpenAI`, `#research`, `#proofs`
 
 ---
 
 <a id="item-4"></a>
-## [Kakehashi：实验性项目，让 macOS 二进制在 Linux ARM 上运行](https://github.com/wie-project/kakehashi) ⭐️ 8.0/10
+## [Lean 内核健全性漏洞 #14576 事后分析：AI 发现的 Collatz 证明伪造 False](https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/) ⭐️ 8.0/10
 
-Kakehashi 是一个新的实验性用户空间翻译层，可在 Linux aarch64 上直接运行 macOS ARM64 命令行二进制文件。当前可用的原型涵盖 7-Zip、curl 和 Xcode Tools Git，其中 7-Zip 已通过多线程压缩测试，curl 已在自动化测试中通过 200 多个命令和选项。 如果项目成熟，Kakehashi 有望成为类似 Wine/Proton 的 macOS 软件兼容层，让开发者无需完整 macOS 虚拟机即可在 Linux ARM 硬件上运行 macOS 命令行工具。这将为 CI 流水线、跨平台开发以及让仅限 macOS 的命令行工具继续发挥作用提供新的可能。 该项目以命令行为主且不使用 JIT，目标是让纯 Darwin 命令行二进制在 freestanding libSystem 下运行，明确不包括 GUI 应用、代码签名/公证流程以及 Xcode UI 测试。当前性能仍处于早期阶段——7-Zip 比原生 Linux 慢约 5.2 倍，但作者已制定了优化计划。
+7 月 28 日，Kiran Gopinathan 将 Ramana Kumar 借助 AI 生成的 Collatz 反证简化为一个 False 的证明，并提交了 issue #14576；Lean 团队在一小时内合并了修复（#14577）。Daniel Selsam 借助 AI 进行的安全审查还发现并修复了内核中的其他错误。 内核健全性是 Lean 等证明助手可信度的基石；一个接受 False 证明的漏洞足以使该内核校验过的所有定理失效。此次事件表明，即使是成熟的证明助手也需要独立检查器和经过验证的内核，而 AI 可以帮助发现此类漏洞。 该漏洞的触发条件是：内核在消除某个归纳类型下的嵌套出现时，如果参数是幻影参数（未出现在构造子字段中），这些参数会被丢弃，从而使类型错误的参数逃过类型检查；该漏洞只能通过元编程触达。独立检查器 nanoda 最初未发现该证明，是因为它在早一周才修复了另一个独立缺陷；lean4lean 对归纳类型的处理是参考实现的移植，因此也受影响。
 
-hackernews · vlad_kalinkin · Aug 2, 16:26
+rss · Lobsters · Aug 1, 21:51
 
-**背景**: macOS 二进制使用 Mach-O 可执行格式，并依赖 Darwin 系统库和系统调用，这与 Linux 的 ELF 格式及 glibc/内核接口不同。用户空间兼容层会将外来二进制的系统调用和库调用转换为主机操作系统的原生调用，Wine 和 Darling 等项目也采用了类似技术。Kakehashi 是尝试将这种方法应用于 Linux aarch64 上运行 macOS ARM64 二进制的实验性项目。
+**背景**: Lean 是一个交互式定理证明器，其内核是一个小型的、可信的程序，负责校验每一个证明。形式化验证依赖这样的内核来确保证明确实证明了它声称的内容，因此即使是实现层面的漏洞也会带来严重风险。像 nanoda 这样的独立复查器，以及 lean4lean 这样一个形式化证明内核正确性的项目，都是抵御此类漏洞的手段。这篇事后分析还描述了如何利用 AI 辅助工具来寻找更多内核缺陷。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://github.com/wie-project/kakehashi">wie- project / kakehashi : Userspace macOS translation layer for Linux ...</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Compatibility_layer">Compatibility layer - Wikipedia</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Mach-O">Mach-O - Wikipedia</a></li>
+<li><a href="https://github.com/leanprover/lean4/issues/14576">Kernel accepts wrong-structure projections, allowing ... - GitHub</a></li>
+<li><a href="https://www.openwall.com/lists/oss-security/2026/08/02/1">oss-security - Lean 4 kernel soundness bug: forging proofs ...</a></li>
+<li><a href="https://freenode.net/article/lean-4-kernel-bug-lets-metaprograms-forge-proofs-of-false">Lean 4 kernel bug lets metaprograms forge proofs of False</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 评论者总体感兴趣但保持谨慎，多人将 Kakehashi 与 Darling 项目比较，并询问是否可以合并努力，尤其是 Darling 已有开放的 ARM64 PR。作者回应了技术进展细节，也有评论者批评项目名称，还有人指出该方案仍处于早期。另有评论提出更深层问题：像游戏反编译项目那样需要原始二进制、不可再分发的虚拟化框架是否更可行。
-
-**标签**: `#macOS`, `#Linux`, `#ARM`, `#compatibility layer`, `#userspace`
+**标签**: `#Lean`, `#soundness bug`, `#kernel`, `#formal verification`, `#postmortem`
 
 ---
 
 <a id="item-5"></a>
-## [OpenAI 称内部模型 Astra 解决十道数学难题](https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything) ⭐️ 8.0/10
+## [Karpathy 的 Pelican 推文引发 AI 物理世界基准测试热议](https://twitter.com/karpathy/status/2083749667410727319) ⭐️ 7.0/10
 
-OpenAI 宣布，其下一代主要模型的内部版本 Astra 解决了十道至少十年没有取得进展的数学问题，按 GPT-5.6 Sol 的 token 价格计算，每道题花费不到 2,000 美元。该公司还发布了 Lean 4 形式化证明、描述解决方案的论文，以及一份由 LLM 生成、根据内部推理轨迹重构证明过程的 PDF。 若经证实，这将是重要里程碑，表明前沿模型能够以极低成本在数学领域产出可审计的研究成果。此前 Anthropic 已借助 Claude Mythos Preview 让 AI 发现密码学弱点，这使得 AI 正从辅助工具转向自主研究工具的感受愈发强烈。 OpenAI 在 GitHub 的 ten-proofs 仓库中提供了 Lean 4 形式化证明，使结果可以通过计算机验证；同时还发布了论文，以及一份由 LLM 根据内部推理轨迹重构证明过程的 PDF。不过 Simon Willison 指出，OpenAI 没有披露有多少问题花了 2,000 美元却未能解决，也没有公布所用的提示词。
+Andrej Karpathy 的一条关于 AI 生成鹈鹕（pelican）图像的推文成为 Hacker News 上热门帖子的主题，引发了关于能否将此类 AI 生成图像用作衡量模型对物理世界理解能力的基准的讨论。 这之所以重要，是因为 PHYRE、PAI-Bench 和 PhyBench 等基准已经旨在测试物理推理能力，而 Karpathy 这种非正式的“鹈鹕”测试凸显了简单、定性的提示如何暴露出当前模型的短板。这表明评价重点正在转向模型对世界的具身理解，而不仅仅是文本或图像生成质量。 该 HN 帖子链接的是 Karpathy 推文的 xcancel 镜像而非原始推文，因此确切提示和鹈鹕输出结果并不明确。评论者将鹈鹕测试与早期案例（例如微软 GPT-4 评估中要求用 TikZ 绘制独角兽）进行对比，并指出这类视觉基准本质上仍是定性和主观的。
 
-rss · Simon Willison · Aug 1, 20:34
+hackernews · delichon · Aug 2, 04:05
 
-**背景**: Lean 4 是一种交互式定理证明器和编程语言，能让数学家以计算机可检查的形式编码证明，从而使 AI 生成的数学成果更易审计。这一声明紧接在 Anthropic 于 2026 年 7 月的工作之后：出于安全顾虑未公开发布的 Claude Mythos Preview 模型，在花费约 10 万美元 token 后发现了密码学弱点。Simon Willison 认为，数学家们对这些结果的反应如同集体迎来“Deep Blue 时刻”；Terence Tao 则展望了人类与 AI 大规模协作的“大数学（big mathematics）”未来。
+**背景**: 物理世界理解基准用于评估 AI 模型是否能对直觉物理、物体交互和空间关系进行推理。近期的相关工作包括 Meta 的 PHYRE 物理推理谜题基准、用于统一评估物理 AI 的 PAI-Bench，以及用于测试文生图模型物理常识的 PhyBench。HN 讨论中提到的“Simon 的鹈鹕”是一个非正式提示，要求 AI 用矢量图形语言绘制一只鹈鹕，作为检验这种理解的简单定性测试。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://runtimewire.com/article/openai-astra-ten-open-math-problems">OpenAI says unreleased Astra model solved 10 open... - RuntimeWire</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Claude_Mythos">Claude Mythos - Wikipedia</a></li>
-<li><a href="https://openrouter.ai/openai/gpt-5.6-sol">GPT - 5 . 6 Sol - API Pricing & Benchmarks | OpenRouter</a></li>
+<li><a href="https://ai.meta.com/research/publications/phyre-a-new-benchmark-for-physical-reasoning/">PHYRE: A New Benchmark for Physical Reasoning | Facebook AI Research</a></li>
+<li><a href="https://www.emergentmind.com/topics/phybench">PHYBench: AI Physical Reasoning Benchmarks</a></li>
+<li><a href="https://www.emergentmind.com/topics/physical-ai-bench-pai-bench">PAI-Bench: Unified Physical AI Evaluation</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI`, `#mathematics`, `#OpenAI`, `#research`, `#LLM`
+**社区讨论**: 一位评论者指出，糟糕的最终产品“正是重点”，因为视觉基准可以揭示模型对物理世界的理解程度。其他人将其与微软早期 GPT-4 评估中要求用 TikZ 绘制独角兽相提并论，还有评论者认为这一测试的可复现性不如“Simon 的鹈鹕”，因为 Karpathy 没有公布提示词。
+
+**标签**: `#AI`, `#benchmarks`, `#machine learning`, `#Karpathy`
 
 ---
 
 <a id="item-6"></a>
-## [TP-Link TL-841N 路由器获得 root 权限，发现重置后仍有效的硬编码凭据](https://blog.juni-mp4.com/posts/42/rooting-the-tplink-tl841n-pt1/) ⭐️ 8.0/10
+## [Kakehashi：在 Linux ARM 上运行 macOS 二进制的实验性用户态项目](https://github.com/wie-project/kakehashi) ⭐️ 7.0/10
 
-安全研究人员完整记录了 TP-Link TL-841N 路由器的 root 提权过程，包括固件提取与分析。调查还发现了即使恢复出厂设置后依然有效的硬编码凭据。 这一发现很重要，因为能跨过恢复出厂设置而存留的硬编码凭据，会让单台被入侵设备变成用户无法通过重置清除的长期后门。这凸显了 IoT 与嵌入式设备中的常见弱点，也为安全从业者提供了固件安全评估的具体案例。 该文章详细介绍了 TP-Link TL-841N 的 root 提权流程、固件分析工作流以及发现的具体硬编码凭据。现有摘要未提供漏洞利用代码或凭据的具体值，且该文章定位为系列文章的第一部分。
+Kakehashi 是一个实验性用户态项目，旨在 Linux ARM 上原生运行 macOS 命令行二进制文件。作者称已实现 7-Zip、curl 和 git 工具的可运行原型，其中 7-Zip 通过了多线程压缩测试，curl 通过了 200 多个命令行测试。 如果成功，Kakehashi 可以将 macOS 命令行软件带到 Linux ARM 设备（如单板计算机和基于 Arm 的服务器）上。它也顺应了跨操作系统兼容层日益增长的趋势，效仿了面向 Windows 应用的 WINE/Proton 先例。 Kakehashi 仍是一个专注于 CLI 二进制的早期实验性原型。作者称 7-Zip 目前比原生 Linux 执行慢约 5.2 倍，但已有明确的优化计划来缩小差距，而且该项目的目标是在 Linux ARM 上原生执行，而非模拟。
 
-rss · Lobsters · Aug 2, 18:32
+hackernews · vlad_kalinkin · Aug 2, 16:26
 
-**背景**: Rooting（获取 root 权限）指获得路由器操作系统的管理员级访问权，类似 Android 设备的 root，可让用户修改系统文件或安装自定义固件。固件分析通常使用 binwalk 等工具提取并检查嵌入式设备的文件系统。硬编码凭据属于 CWE-798 漏洞类别，即产品出厂时带有固定的用户名或密码，攻击者可借此访问设备。当这类凭据在恢复出厂设置后仍然有效时，就会给用户带来特别持久的风险。
+**背景**: Kakehashi（梯）在日语中意为“吊桥”，恰如其分地描述了这座连接 macOS 软件与 Linux 的桥梁。在 Linux 上运行 macOS 二进制文件不仅仅需要翻译 CPU 指令：这些二进制文件采用 Mach-O 可执行格式，并依赖 Apple 的系统库与内核接口。用户态兼容层（而非完整虚拟机）将这些 macOS API 转换为 Linux 等价物。在用户态，二进制兼容通常取决于库在版本演进中保持稳定的接口与版本控制。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://cwe.mitre.org/data/definitions/798.html">CWE - CWE-798: Use of Hard-coded Credentials (4.20)</a></li>
-<li><a href="https://www.pentestpartners.com/security-blog/how-to-do-firmware-analysis-tools-tips-and-tricks/">How To Do Firmware Analysis. Tools, Tips, and Tricks | Pen Test Partners</a></li>
-<li><a href="https://www.askdifference.com/routing-vs-rooting/">Routing vs. Rooting — What’s the Difference?</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kakehashi">Kakehashi</a></li>
+<li><a href="https://blogs.oracle.com/linux/binary-compatibility">Binary Compatibility and OpenELA’s ELValidated Project</a></li>
 
 </ul>
 </details>
 
-**标签**: `#security`, `#firmware-analysis`, `#IoT`, `#reverse-engineering`, `#embedded-systems`
+**社区讨论**: 讨论总体积极但谨慎。有用户将该项目的长远潜力比作面向 Windows 应用的 WINE/Proton，并询问作者是否可以与已有 ARM64 PR 的 Darling 项目合作。另一位用户表示自己一直在寻找这类项目，但认为方案仍处于早期阶段，还有一位用户则开玩笑地吐槽了项目名称。
+
+**标签**: `#macOS`, `#Linux`, `#ARM`, `#binary compatibility`, `#userspace`
 
 ---
 
 <a id="item-7"></a>
-## [eBay 安全团队骚扰批评者致 5600 万美元赔偿](https://www.ft.com/content/06ec1b03-d4af-40cf-b12a-4ba5a410f6d2) ⭐️ 7.0/10
+## [eBay 骚扰事件致 5600 万美元赔偿](https://www.ft.com/content/06ec1b03-d4af-40cf-b12a-4ba5a410f6d2) ⭐️ 7.0/10
 
-联邦法院裁定 eBay 向 David 和 Ina Steiner 夫妇支付 5600 万美元赔偿金；这对夫妇是 EcommerceBytes 新闻通讯的创办人，此前遭到 eBay 前安全高管的骚扰和恐吓。前高级主管被判处监禁，其中 Jim Baugh 获刑 57 个月。 此案是企业安全团队被用来对付普通批评者的标志性案例，引发对科技行业问责机制的深刻质疑。它表明即便是知名企业，也会因高管滥用权力压制异见而面临法律和巨额财务后果。 共有七名 eBay 安全团队成员（包括前警察队长）因该行动被起诉；行动包括发布威胁性推文、发送匿名邮件，以及寄送猪面具等令人不安的物品。判决结果从 Brian Gilbert 的“已服刑期”到 Jim Baugh 的 57 个月监禁不等，法院还施加了禁止接触受害者的条件。
+七名前 eBay 安全团队成员因针对一对批评该公司的夫妇策划骚扰活动而被判刑，eBay 同意支付 5600 万美元。刑期包括前安全与安保高级总监 Jim Baugh 的 57 个月监禁，以及 Brian Gilbert 的已服刑时间加 2 万美元罚款。 此案凸显了企业安全团队滥用权力报复批评者的风险。刑事判决与巨额赔偿相结合，向企业发出了明确警告：此类不当行为将带来法律和经济后果。 根据社区报道的细节，Jim Baugh 被判 57 个月监禁，Brian Gilbert 被判已服刑时间、一年监督释放（不得接触受害者）及 2 万美元罚款。其他成员，包括前全球韧性总监 David Harville，也受到判决，但具体细节未被完整记录。
 
 hackernews · JumpCrisscross · Aug 2, 19:19
 
-**背景**: 2019 年，eBay 全球安全团队的高级成员将矛头指向马萨诸塞州夫妇 David 和 Ina Steiner，这对夫妇在 EcommerceBytes 通讯中发表了对 eBay 的批评文章。员工据称发送威胁信息、跟踪夫妇行踪，并向其家中寄送令人不安的物品。这场骚扰由 eBay 前安全与安保高级总监 Jim Baugh 主导，多名员工参与其中。eBay 于 2020 年支付了 300 万美元刑事罚款，随后以 5600 万美元和解了这对夫妇的民事诉讼。
+**背景**: 此案涉及 eBay 全球安全团队针对 Ina 和 David Steiner 夫妇的行动，二人运营一份批评 eBay 的电子通讯。检察官称，包括前警察队长在内的七名团队成员联手通过威胁信息、监视和其他方式骚扰和恐吓 Steiner 夫妇。5600 万美元是和解协议的一部分，刑事诉讼导致数名成员被判监禁。
 
-**社区讨论**: 评论者大多对判决表示欢迎，但也质疑骚扰是否仅限于 Steiner 夫妇，指出 eBay 的批评者众多，且涉案的七名员工中包括前警察队长。有人建议检方应调查是否有其他人同样遭到针对。还有人借此讨论企业行为与监督问题，个别评论则跑题谈及 eBay 卖家的收费。
+**社区讨论**: 评论者对骚扰事件仅止于 Steiner 夫妇表示怀疑，呼吁调查 eBay 是否还针对其他批评者，并调查涉案前警察队长的职业生涯。一位评论者引用了一个更广泛的现象：当人们缺乏监督时可能会出现不当行为，并提到其他企业事件。另一位评论者转而批评 eBay 高昂的卖家费用。
 
-**标签**: `#eBay`, `#corporate misconduct`, `#legal`, `#security`, `#tech ethics`
+**标签**: `#security`, `#corporate misconduct`, `#legal`, `#ethics`, `#eBay`
 
 ---
 
 <a id="item-8"></a>
-## [AI 公开信：开放权重模型政策引发业界对立](https://simonwillison.net/2026/Aug/2/open-letters/#atom-everything) ⭐️ 7.0/10
+## [AI 公开信：开放权重与蒸馏引发辩论](https://simonwillison.net/2026/Aug/2/open-letters/#atom-everything) ⭐️ 7.0/10
 
-2026 年 7 月下旬，微软发布了由 235 家 AI 相关公司签署的公开信《Open Weights and American AI Leadership》，敦促美国政策制定者不要限制开放权重 AI 模型。随后 Anthropic 发表立场声明，另有逾 1,300 名前沿 AI 员工签署《Pacing the Frontier》，显示出业界严重分歧。 这些公开信直接针对美国政府可能以安全为由禁止或限制开放权重模型的动向，而此类政策将深刻改变 AI 研发方式。微软牵头的广泛行业联盟与 Anthropic 对威权政权滥用风险的警告形成鲜明对立，凸显了强大的 AI 能力应当向谁开放这一核心政策争议。 微软的信件尤为特殊，因为它公开为蒸馏（distillation）辩护，呼吁政策制定者不要将其与不当盗用混为一谈。Anthropic 没有签署该信并呼吁打击工业规模的蒸馏行为；而由 OpenAI 首席科学家 Jakub Pachocki 和 Ilya Sutskever 等人签署的《Pacing the Frontier》则要求美国政府支持国际协作，审慎设定自动化 AI 研发的节奏。
+西蒙·威利森总结了近期两封关于 AI 政策的公开信：微软支持、235 家公司签署的《开放权重与美国 AI 领导力》为开放权重模型和蒸馏技术辩护；而《为前沿设定节奏》由 1324 名前沿 AI 员工签署，呼吁国际治理来有意识地控制自动化 AI 发展的速度。 这些公开信反映了 AI 社区在开放权重模型与 AI 安全问题上的公开分歧，可能影响美国的政策制定。这场辩论关系到模型访问权限和蒸馏等技术手段的监管。 第一封信（7 月 24 日）由 235 家 AI 相关公司签署，包括 NVIDIA、亚马逊、Y Combinator，以及后来加入的 OpenAI；Anthropic 拒绝签署，并在三天后发布了自己的回应，批评工业规模的蒸馏操作。第二封信（7 月 28 日）由 OpenAI、Anthropic 等前沿实验室的员工签署，包括 Ilya Sutskever 和 Dario Amodei。
 
 rss · Simon Willison · Aug 2, 04:16
 
-**背景**: 开放权重模型会公开训练后的模型参数，使任何人都能下载、运行和微调，但与真正的开源 AI 不同，它通常不提供完整训练数据和代码。支持者认为这有助于透明性、竞争与安全研究；批评者则担心模型可能被用于网络攻击、生物武器或被威权政府滥用。蒸馏（distillation）是一种让模型从其他模型输出中学习的技术，在模型开发中广泛使用，但也引发了激烈政策讨论。这些公开信反映了美国围绕 AI 监管与开放访问展开的更广泛政策博弈。
+**背景**: 开放权重模型是指将训练好的神经网络参数公开供人下载和使用的模型，相比封闭模型，它们允许更广泛的研究和审查。蒸馏技术是将大模型（教师）的知识转移给小模型（学生），使小模型在保持性能的同时更高效地部署。Claude Code 是一个在终端中运行的 AI 助手，可以分析代码库、调试和修复问题，这展示了 AI 在软件开发中的自动化应用。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://opensource.org/ai/open-weights">Open Weights: not quite what you’ve been told – Open Source ...</a></li>
-<li><a href="https://openai.com/open-models/">Open models by OpenAI</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Knowledge_distillation">Knowledge distillation - Wikipedia</a></li>
+<li><a href="https://allthings.how/what-is-an-open-weight-ai-model-and-how-to-use-one/">What is an Open Weight AI Model and How to Use One</a></li>
+<li><a href="https://www.loomery.com/insights/what-is-claude-code-actually-good-for-an-actual-road-test">What is Claude Code actually good for: A road test | Loomery</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI policy`, `#open weights`, `#artificial intelligence`, `#regulation`, `#industry`
+**标签**: `#AI policy`, `#open weights`, `#distillation`, `#AI development`
 
 ---
 
 <a id="item-9"></a>
-## [Laguna S2.1、Inkling 与 Kimi K3 展示开放模型前沿效用](https://www.interconnects.ai/p/latest-open-artifacts-23-laguna-s21) ⭐️ 7.0/10
+## [开源模型盘点#23：Laguna S2.1、Inkling、Kimi K3 推进帕累托前沿](https://www.interconnects.ai/p/latest-open-artifacts-23-laguna-s21) ⭐️ 7.0/10
 
-Interconnects 的“Latest open artifacts”系列最新一期重点介绍了三个新的开放权重模型：Poolside 的 Laguna S2.1、Thinking Machines Lab 的 Inkling 以及 Kimi K3，并认为它们表明开放模型正在进入实用性 Pareto 前沿。文章指出，训练强大模型的能力不断扩散是这一趋势的关键驱动力。 这一点很重要，因为开放权重模型正日益能够匹敌闭源系统在性能与成本之间的权衡，为开发者提供了可行的部署和定制替代方案。对 AI/ML 从业者而言，这一转变可能加速开放模型在生产环境中的采用，并加大闭源厂商面临的竞争压力。 Poolside 发布的 Laguna S2.1 是一个开放权重混合专家（MoE）模型，总参数 118B、每 token 激活 8B，支持 100 万 token 上下文窗口，并提供思维链推理模式。Inkling 是 Thinking Machines Lab 首个开放权重模型，总参数 975B、激活参数 41B，采用 MoE transformer 架构，训练时覆盖视频和音频；本篇文章也提到了 Kimi K3，但原始资料未提供更多细节。
+这篇盘点涵盖了最新的开源权重模型发布，包括 Poolside 的 Laguna S2.1、腾讯的 Hy3、Thinking Machines 的模型以及 LongCat-2.0。文章强调这些模型如何落在帕累托前沿上，例如 Hy3 证明了一个 50 年前的数学问题，LongCat-2.0 则是首个完全在中国 Ascend 910 芯片上训练的非华为模型。 该报道反驳了行业整合的预测，显示越来越多的公司正在训练强大模型并公开释出。这扩大了开源模型生态系统，为 AI/ML 从业者提供了更多能力强、成本效益高的选择，并加剧了中美实验室之间的竞争。 值得注意的细节包括：Thinking Machines 的开源模型微调服务据称每年创造数亿美元收入，腾讯将 Hy3 转为 Apache 2.0 许可证。Poolside 的 Laguna S2.1（118B-A8B MoE）可运行在 DGX Spark 上，并采用 OpenMDW 许可证，而 LongCat-2.0 是一个 1.6T 参数的 MoE，完全在 Ascend 910 上训练。
 
 rss · Interconnects (Nathan Lambert) · Aug 2, 13:01
 
-**背景**: LLM 的 Pareto 前沿是一种可视化模型效率的方式：如果没有任何其他模型在更便宜的同时质量更高，那么该模型就是 Pareto 最优。实际操作中，这条前沿曲线代表了在给定成本下用户能获得的最佳性能，而开放权重模型历来在这条曲线上落后于专有模型。文章的核心论点——训练能力正在扩散——有助于解释为什么 Laguna S2.1 和 Inkling 等开放模型现在正落在这条前沿上或接近这条前沿，尤其是在智能体编程和长周期软件工程任务中。
+**背景**: 机器学习中的帕累托前沿指的是一组在相互竞争的目标（如能力与计算成本）之间提供最佳权衡的模型。许多最新的开源模型采用混合专家（MoE）架构，每个 token 只激活一部分参数，从而在不按比例增加推理成本的情况下提升模型容量。开源权重发布允许开发者自行微调和部署模型，减少对专有 API 的依赖。这篇文章的背景是训练成本不断上升，以及关于是否只有少数实验室能主导模型开发的争论。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://kie.ai/blog/what-is-laguna-s-2-1">What Is Laguna S 2 . 1 ? 118B-A8B Open Coding MoE</a></li>
-<li><a href="https://thinkingmachines.ai/news/introducing-inkling/">Inkling: Our Open-Weights Model - Thinking Machines Lab</a></li>
-<li><a href="https://paraplouis.github.io/llm-pareto-frontier/">The LLM Pareto frontier - paraplouis.github.io</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pareto_front">Pareto front - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mixture_of_experts">Mixture of experts - Wikipedia</a></li>
 
 </ul>
 </details>
 
-**标签**: `#open models`, `#AI`, `#LLM`, `#Pareto frontier`, `#model releases`
+**标签**: `#open models`, `#AI`, `#machine learning`, `#model releases`, `#Pareto frontier`
 
 ---
 
 <a id="item-10"></a>
-## [解析 C 语言的 sizeof 运算符为何出奇困难](https://sebsite.pw/w/20260802-sizeof.html) ⭐️ 7.0/10
+## [C 语言 sizeof 的解析歧义：解析为何出奇困难](https://sebsite.pw/w/20260802-sizeof.html) ⭐️ 7.0/10
 
-sebsite.pw 的一篇新技术文章分析了为何 C 语言的 `sizeof` 运算符难以解析，重点指出了让编译器和工具实现颇费周折的语法歧义与上下文相关规则。 C 仍是使用最广泛的系统编程语言之一，因此语法解析的细微问题会直接影响编译器、静态分析器和 language server。理解这些歧义有助于工具开发者避免 bug，并更好地遵循语言标准。 `sizeof` 是编译期的单目运算符，结果类型为 `size_t`；由于优先级，`sizeof a + b` 会被解析为 `(sizeof a) + b`。解析的主要难点在于区分带括号的类型名与带括号的表达式，这需要知道某个标识符是不是 typedef 名。
+一篇技术文章解释了为何解析 C 的 sizeof 运算符出乎意料地困难：其操作数既可以是未加括号的一元表达式，也可以是加括号的类型名，而复合字面量（compound literals）及后缀运算符会破坏朴素的解析策略。同样的难题也适用于 C2y 新引入的 _Countof 运算符。 这对编译器与解析器开发者很重要，因为这种歧义迫使人们仔细设计文法，而不能简单地依赖前瞻一个 token 或回溯。随着 C2y 标准化 _Countof，理解这一陷阱也很重要，因为 _Countof 继承了同样的解析难题。 朴素的策略——先看是否有左括号，尝试解析类型名，失败则回退解析表达式——在 sizeof(int){0} 这类把复合字面量当作表达式的情况，以及 sizeof(T){}.x[0]() 这类后缀运算符跟在后面的情况下都会失效。一种正确做法是编写一个既尝试一元表达式又尝试括号类型名的解析函数以避免回溯，同时注意不要贸然把强制转换表达式（cast expression）的解析合并到同一代码路径，因为 sizeof(int)+1 是加法表达式，而不是某个强制转换表达式的大小。
 
 rss · Lobsters · Aug 2, 06:01
 
-**背景**: C 的语法是上下文相关的：一个标识符究竟是类型名还是变量名，取决于它之前的声明。编译器通常使用一种被称为“lexer hack”的技术，由解析器把上下文信息反馈给词法分析器，以便正确识别标识符。对于 `sizeof`，解析器必须判断 `sizeof (x)` 中的括号内容是一个类型还是一个表达式，这种歧义无法用简单的文法直接解决。这是 C 语法解析中的一个经典难题，并非 `sizeof` 独有。
+**背景**: 在 C 语言中，sizeof 的操作数可以是一元表达式，也可以是加括号的类型名；只有类型名必须加括号。C99 引入的复合字面量（如 (int){0}）是表达式，外观却像强制转换后跟一个花括号初始化列表，由此产生了上述歧义。下一个 C 标准 C2y 新增了用于获取数组长度的 _Countof 运算符，它也面临同样的解析难题。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.cppreference.com/cpp/language/sizeof">sizeof operator - cppreference.com</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Lexer_hack">Lexer hack - Wikipedia</a></li>
-<li><a href="https://eli.thegreenplace.net/2011/05/02/the-context-sensitivity-of-cs-grammar-revisited">The context sensitivity of C’s grammar, revisited</a></li>
+<li><a href="https://en.cppreference.com/c/language/compound_literal">Compound literals (since C99) - cppreference.com</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sizeof">sizeof - Wikipedia</a></li>
+<li><a href="https://sourceforge.net/p/sdcc/feature-requests/978/">C2y: The _Lengthof Operator (now _Countof/countof) - SourceForge</a></li>
 
 </ul>
 </details>
 
-**标签**: `#C`, `#parsing`, `#compilers`, `#programming languages`, `#sizeof`
+**标签**: `#C`, `#parsing`, `#compilers`, `#sizeof`, `#programming languages`
 
 ---
 
 <a id="item-11"></a>
-## [手动重打 LLM 生成代码，预防认知债务](https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/) ⭐️ 7.0/10
+## [Rust 1.98 新增代数浮点运算符，加速数值计算](https://pythonspeed.com/articles/faster-float-math-rust/) ⭐️ 7.0/10
 
-这篇博客文章主张开发者应手动重新输入 LLM 生成的代码，而不是直接复制粘贴，以便把代码逻辑真正内化到自己的心智模型中。文章将这种做法定义为在 AI 辅助软件开发中减少认知债务的一种实用手段。 随着基于 LLM 的代码生成越来越普遍，开发者会交付许多自己并未完全理解的代码，这会在他们的头脑中积累隐性的维护成本。手动重新输入是一种低技术的应对方法，有望改善代码理解与长期可维护性，这篇文章也很可能引发关于如何负责任地使用 AI 编程工具的讨论。 这一做法属于个人实践层面的观点性建议，而非团队强制规范；它需要自律和额外时间，因此未必适合所有工作流。文章明确将这种习惯与预防认知债务联系起来，而认知债务是指共享理解的流失，会让软件系统变得更难理解、更难安全修改。
+Rust 1.98 为 f32 和 f64 新增了一组代数算术运算符，它们明确允许编译器利用实数代数性质进行优化，包括重排运算顺序。文章中的成对求和与 SSD 示例在使用这些运算符后，运行速度约为原来的两倍。 这为 Rust 开发者提供了一种稳定、按操作级别的方式来放宽严格的浮点语义，而不必使用影响整个程序的全局 fast-math 标志。对于所有使用 Rust 进行数值计算的领域——科学模拟、机器学习、游戏或数据处理——都有重要意义，因为微小的精度取舍可以换来显著的加速。 新的代数运算符与原有的严格运算符互补，可在同一算法中混用：对精度敏感的部分使用严格加法，对性能敏感的部分使用代数加法。在文章基于 Rust 1.98 beta 和 x86-64-v3 目标 CPU 的基准测试中，SSD 示例的耗时从 628.7 微秒降至 371.1 微秒，每个值的 CPU 指令数从 4.5 降至 1.0。
 
-rss · Lobsters · Aug 2, 10:31
+rss · Lobsters · Aug 2, 20:27
 
-**背景**: 认知债务是软件工程领域逐渐受到关注的概念：它描述的是当系统难以理解时，积淀在开发者脑中的复合成本，就像技术债务描述日后必须偿还的代码一样。相关定义强调团队共享心智模型的流失，以及当代码无法被放心修改时所产生的焦虑体验。这篇博客文章把这个视角应用到 LLM 辅助开发上——在那种场景下，生成的代码很容易被整合，却很难被真正理解。
+**背景**: 浮点运算不满足结合律：(a+b)+c 可能因舍入而与 a+(b+c) 不同，NaN、Inf 和 -0.0 等特殊值也会破坏对实数成立的代数恒等式。因此，编译器默认会避免对浮点表达式进行重排或重新结合，这会阻碍自动向量化、公共子表达式消除等优化。C/C++ 等语言提供了全局的 'fast-math' 标志来放宽这些规则，但 Rust 此前没有稳定且细粒度的等效方案。新的代数运算符正是让开发者可以标记特定运算为可优化，从而解决这个问题。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://margaretstorey.com/blog/2026/02/09/cognitive-debt/">How Generative and Agentic AI Shift Concern from Technical Debt to Cognitive Debt</a></li>
-<li><a href="https://arxiv.org/abs/2603.22106">[2603.22106] From Technical Debt to Cognitive and Intent Debt: Rethinking Software Health in the Age of AI</a></li>
-<li><a href="https://getdx.com/blog/cognitive-debt-the-hidden-risk-in-ai-driven-software-development/">Cognitive debt: The hidden risk in AI-driven software development</a></li>
+<li><a href="https://pythonspeed.com/articles/faster-float-math-rust/">Faster floating point math with Rust’s new API</a></li>
+<li><a href="https://doc.rust-lang.org/std/primitive.f32.html">f32 - Rust</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Floating-point arithmetic - Wikipedia</a></li>
 
 </ul>
 </details>
 
-**标签**: `#LLM`, `#code generation`, `#cognitive debt`, `#software engineering`, `#developer productivity`
+**标签**: `#Rust`, `#floating-point`, `#performance`, `#compiler optimization`, `#numeric computing`
 
 ---
 
 <a id="item-12"></a>
-## [Rust 新 std::simd API 加速浮点运算](https://pythonspeed.com/articles/faster-float-math-rust/) ⭐️ 7.0/10
+## [评测 C++26 新增的 std::hive 容器性能](https://lemire.me/blog/2026/08/02/how-fast-is-c26s-stdhive/) ⭐️ 7.0/10
 
-文章重点介绍 Rust 新的 std::simd API，即标准库中的可移植 SIMD 模块，它让开发者可以用一条 CPU 指令对多个数值执行浮点运算。该 API 支持对 SIMD 向量进行逐元素的加法、乘法等运算。 这对编写数值计算、科学计算或性能敏感代码的 Rust 开发者很重要，因为它提供了一种安全且可移植的方式来获得 SIMD 加速，而无需手工编写针对特定架构的 intrinsic。这也让 Rust 在浮点性能方面比那些依赖外部库或 -ffast-math 等编译选项的语言更有吸引力。 根据 std::simd 文档，当硬件不支持某些浮点函数时，这些函数可能会退回调用操作系统动态加载的 math.h 数学库，因此它们需要运行时操作系统支持，并且只应出现在基于 std 构建的二进制程序中。Simd 与普通迭代和普通数组不同，运算会以逐元素方式作用于整个向量。
+Daniel Lemire 对 C++26 新增的 std::hive 容器进行了性能基准测试，并将其与 std::vector、std::list 等其他标准容器进行对比。他的测量结果展示了 hive 的连续块存储在实际使用中的表现。 std::hive 是 C++ 标准库中的全新容器，开发者需要可靠的性能数据来决定何时使用它。Lemire 是备受尊敬的性能研究者，因此他的基准测试对 C++26 项目中容器的选择具有重要参考价值。 这篇博文链接到了 Lobsters 上的讨论，但提供的 feed 中不包含社区评论。std::hive 容器由提案 P0447R28（“将 std::hive 引入标准库”）引入，其设计目标是将元素存储在连续的内存块中。
 
-rss · Lobsters · Aug 2, 20:27
+rss · Lobsters · Aug 2, 18:28
 
-**背景**: SIMD 即单指令多数据（Single Instruction, Multiple Data），是一种利用特殊 CPU 寄存器在单条 CPU 指令中处理多个数值的并行计算方式。现代 CPU 可以一次处理 4、8 或 16 个数，而 Rust 的 std::simd 让程序员能够直接利用这种能力。此前 Rust 开发者通常需要使用特定架构的 intrinsic 或 -ffast-math 等编译器选项才能获得更快的浮点运算，这些做法可能不安全或不可移植。
+**背景**: C++26 在标准库中新增了 std::hive，旨在填补 std::vector 与 std::list 之间的空白。与 vector 类似，它将元素保存在连续的内存块中，因此遍历时无需为每个元素追踪指针。与 list 不同，hive 支持高效地插入和删除元素，同时不会使指向其他元素的指针或引用失效，因此适用于某些实时系统和游戏开发场景。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://doc.rust-lang.org/std/simd/index.html">std::simd - Rust std::simd - Rust SIMD in Rust: When Your Code Needs to Do Four Things at Once std::simd - Rust - GitHub Pages GitHub - rust-lang/portable-simd: The testing ground for the ... Rust SIMD — a tutorial. SIMD in Rust | by BWinter | Medium</a></li>
-<li><a href="https://doc.rust-lang.org/std/simd/struct.Simd.html">Simd in std::simd - Rust</a></li>
-<li><a href="https://stackoverflow.com/questions/30863510/how-do-i-compile-with-ffast-math">rust - How do I compile with "ffast-math"? - Stack Overflow Code sample</a></li>
+<li><a href="https://lemire.me/blog/2026/08/02/how-fast-is-c26s-stdhive/">How fast is C+ + 26 ’s std :: hive ? – Daniel Lemire's blog</a></li>
+<li><a href="https://cpprefjp.github.io/reference/hive/hive.html">std :: hive - cpprefjp C++日本語リファレンス</a></li>
 
 </ul>
 </details>
 
-**标签**: `#Rust`, `#performance`, `#floating-point`, `#programming`, `#systems`
+**标签**: `#C++`, `#C++26`, `#std::hive`, `#performance`, `#benchmarking`
 
 ---
 
 <a id="item-13"></a>
-## [C++26 新容器 std::hive 性能实测：到底有多快？](https://lemire.me/blog/2026/08/02/how-fast-is-c26s-stdhive/) ⭐️ 7.0/10
+## [写操作遇到 EPIPE 通常意味着设计缺陷](https://rachelbythebay.com/w/2026/07/09/pipe/) ⭐️ 7.0/10
 
-Daniel Lemire 发布了对 C++26 新容器 std::hive 的基准测试与分析，std::hive 是原 plf::colony 库的标准化版本。文章将 hive 与 std::vector、std::list 进行对比，展示新容器在哪些场景更快或更慢。 std::hive 是标准库中少有的专门兼顾缓存友好迭代、指针稳定和快速删除的容器，因此独立的性能数据对正在评估它的开发者非常重要。测试结果将帮助游戏开发者、模拟程序编写者以及使用实体组件系统的团队决定是否迁移到这一新标准容器。 std::hive 介于 std::vector 与 std::list 之间：它将元素存储在连续内存块中，因此遍历时无需逐个追踪指针，而删除元素时又不会移动其他元素。它是一个无序容器，不保证插入顺序；cppreference 上的示例用 1000 万次插入/删除操作对 hive 与 std::list 进行了对比。
+rachelbythebay.com 上的一篇新文章认为，当程序在 write 时收到 EPIPE，通常是程序管理管道或套接字的方式存在设计缺陷的症状，而不是需要通过防御性代码处理的暂时性错误。 对系统程序员而言，正确处理断开的管道是一个反复出现的痛点，而对 EPIPE 的误判会导致代码脆弱或数据静默丢失。这篇文章将这一错误重新定义为设计问题，可能影响开发者组织 I/O 和进程生命周期的方式。 这篇文章区分了 SIGPIPE——进程在向已关闭的管道写入时默认收到的信号——和 EPIPE——当 SIGPIPE 被忽略或阻塞时 write 返回的 errno 值。它指出，在正常操作中遇到 EPIPE 通常意味着程序一开始就不应该向那个描述符写入。
 
-rss · Lobsters · Aug 2, 18:28
+rss · Lobsters · Aug 2, 08:35
 
-**背景**: std::hive 是 C++26 标准库中的新容器，最初以第三方库 plf::colony 的形式出现。传统容器往往迫使开发者做出取舍：std::vector 遍历速度快，但重新分配会使指针失效，且中间插入性能差；std::list 迭代器稳定，但缓存局部性差。std::hive 试图结合两者优点，将元素按连续内存块分配，从而在扫描时获得较好的缓存友好性，同时保持元素地址稳定。Daniel Lemire 是一位以清晰、面向性能的编程文章著称的计算机科学教授，因此这篇评测是了解新容器的很有价值的独立资料。
+**背景**: 在类 Unix 系统中，当进程向读取端已关闭的管道或套接字写入时，内核会发送 SIGPIPE，其默认动作是终止进程。如果进程忽略或阻塞了 SIGPIPE，write 会返回 -1 并将 errno 设为 EPIPE（'broken pipe'，管道断裂）。许多程序遇到 EPIPE，仅仅是因为它们忽略了 SIGPIPE 后又继续写入，这往往说明程序缺少对端状态或 write 返回值的检查。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://lemire.me/blog/2026/08/02/how-fast-is-c26s-stdhive/">How fast is C++26’s std::hive?</a></li>
-<li><a href="https://en.cppreference.com/cpp/container/hive">std::hive - cppreference.com</a></li>
-<li><a href="https://medium.com/towardsdev/cpp26-std-hive-deep-dive-tutorial-5bdaa44f4d94">A Deep Dive into C++26 std::hive: The Ultimate Container for Active Data | by Sagar | Towards Dev</a></li>
+<li><a href="https://www.unix.com/programming/171395-sigpipe-epipe.html">SIGPIPE and EPIPE - Programming - Unix Linux Community</a></li>
+<li><a href="https://stackoverflow.com/questions/108183/how-to-prevent-sigpipes-or-handle-them-properly">How to prevent SIGPIPEs (or handle them properly) Usage example</a></li>
+<li><a href="https://www.man7.org/linux/man-pages/man7/signal.7.html">signal (7) — Linux manual page</a></li>
 
 </ul>
 </details>
 
-**标签**: `#C++`, `#C++26`, `#std::hive`, `#performance`, `#containers`
+**标签**: `#EPIPE`, `#Unix`, `#pipes`, `#error handling`, `#systems programming`
 
 ---
 
 <a id="item-14"></a>
-## [Arch Linux 开发者 linderud 宣布辞去项目职务](https://linderud.dev/blog/resigning-from-arch-linux/) ⭐️ 7.0/10
+## [破解 TP-Link TL-841N 固件发现硬编码重置持久凭据](https://blog.juni-mp4.com/posts/42/rooting-the-tplink-tl841n-pt1/) ⭐️ 7.0/10
 
-Arch Linux 开发者 linderud 发布了一篇名为“Resigning from Arch Linux”的博客文章，宣布离开该项目。文章附带了 Lobsters 讨论帖的链接，但所提供的正文内容中没有更多细节。 一位活跃的 Arch Linux 开发者辞职值得关注，因为维护者对于主要开源发行版的健康发展至关重要。这可能意味着项目动态发生变化，并可能影响用户和其他贡献者，同时引发关于维护者倦怠与治理的更广泛讨论。 所提供的材料中只包含一个指向 Lobsters 评论区的链接，没有辞职博客的正文内容。因此，关于此次辞职的具体原因、时间线及影响范围，目前无法从该新闻条文中得知。
+一篇详细的博文描述了如何对 TP-Link TL-841N 路由器进行 root、分析其固件，并发现硬编码且重置后仍存在的凭据。 在恢复出厂设置后仍然存在的硬编码凭据对物联网设备构成严重安全风险，可能导致持久未授权访问。这一发现凸显了对消费级路由器进行固件审计和负责任披露的重要性。 分析过程包括对设备进行 root 以获得固件的特权访问权限，并从中提取硬编码凭据。“重置持久”一词表明，即使在恢复出厂设置后，这些凭据依然有效，这对用户和厂商而言都是一个关键警告。
 
-rss · Lobsters · Aug 1, 22:47
+rss · Lobsters · Aug 2, 18:32
 
-**背景**: Arch Linux 是一款广泛使用的 Linux 发行版，以简洁、滚动发布模式和高度社区参与著称。其开发者和维护者负责软件打包、仓库维护和基础设施，他们的离开与他们在任时的工作同样重要。在更广泛的开源生态中，维护者辞职常常由倦怠、治理争议或个人原因引起，但本新闻并没有说明具体原因。
-
-**标签**: `#Arch Linux`, `#Open Source`, `#Linux`, `#Maintainer Resignation`, `#Community`
-
----
-
-<a id="item-15"></a>
-## [没有数学家的数学：当机器来做数学](https://borretti.me/article/mathematics-without-mathematicians) ⭐️ 7.0/10
-
-发表于 borretti.me 的随笔《Mathematics Without Mathematicians》（没有数学家的数学）设想：如果人类数学家退出数学研究过程，由机器完成推理与发现，数学会变成什么样子。文章聚焦自动推理（automated reasoning）与计算发现（computational discovery），而非提出新的形式化结论。 这篇文章之所以重要，是因为人工智能与形式化方法正日益被认为可能改变数学的研究方式，而自动推理迄今对一线数学家的实际影响仍然很小。它参与了一场正在进行的讨论：机器未来究竟只是工具，还是会成为自主的数学研究主体。 该帖子带有 mathematics、computational-thinking、formal-methods 和 essay 等标签，表明其关注形式化验证与计算思维。新闻条目中可用的内容很少，仅包含一个指向 Lobsters 评论讨论帖的链接，因此无法仅凭该条目确认文章的完整论证。
-
-rss · Lobsters · Aug 2, 09:30
-
-**背景**: 自动定理证明（automated theorem proving）是自动推理的一个子领域，目标是用计算机程序证明数学定理；对数学证明的自动推理曾是早期计算机科学的重要推动力。尽管经过数十年发展，自动推理工具却很少被一线数学家使用，也几乎没有促成多少数学发现。另一方面，计算发现（computational discovery）利用计算机代数和实验来寻找新的数学结果，这与文章所探讨的“没有数学家的数学”场景更为接近。
+**背景**: 对路由器进行 root 通常意味着获得对固件的特权访问权限，固件中包含操作系统和配置文件。硬编码凭据是嵌入在固件或源代码中的明文用户名或密码，通常由制造商用于维护或诊断。当此类凭据重置后仍然存在时，它们能躲过恢复出厂设置，意味着用户无法仅通过重置设备来消除后门。这使得它们成为消费级网络设备中特别危险的安全漏洞。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Automated_reasoning">Automated reasoning - Wikipedia</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Automated_theorem_proving">Automated theorem proving - Wikipedia</a></li>
-<li><a href="https://link.springer.com/content/pdf/10.1007/978-3-031-63498-7_1">Automated Reasoning for Mathematics - Springer</a></li>
+<li><a href="https://www.forescout.com/blog/new-tp-link-router-vulnerabilities-a-primer-on-rooting-routers/">New TP-Link Router Vulnerabilities: A Primer on Rooting Routers</a></li>
+<li><a href="https://www.beyondtrust.com/resources/glossary/hardcoded-embedded-passwords">What are Hardcoded Passwords/Embedded Credentials? | BeyondTrust</a></li>
+<li><a href="https://www.beyondtrust.com/blog/entry/hardcoded-and-embedded-credentials-are-an-it-security-hazard-heres-what-you-need-to-know">Hardcoded and Embedded Credentials - What You Need to Know | BeyondTrust</a></li>
 
 </ul>
 </details>
 
-**标签**: `#mathematics`, `#computational-thinking`, `#formal-methods`, `#essay`
+**标签**: `#security`, `#firmware`, `#reverse-engineering`, `#IoT`, `#credentials`
 
 ---
