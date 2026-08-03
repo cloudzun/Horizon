@@ -17,7 +17,7 @@ title: CloudZun 每日速递
 
 ## 历史归档
 
-{% assign archive = posts | offset: 1 | limit: 6 %}
+{% assign archive = posts | offset: 1 | limit: 3 %}
 {% if archive.size > 0 %}
 <ul>
   {% for post in archive %}
