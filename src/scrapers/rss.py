@@ -1,6 +1,8 @@
 """RSS feed scraper implementation."""
 
 import calendar
+import hashlib
+import asyncio
 import logging
 import os
 import re
@@ -11,6 +13,7 @@ import httpx
 import feedparser
 
 from .base import BaseScraper
+from ..extractors import ExtractorRegistry
 from ..models import ContentItem, SourceType, RSSSourceConfig
 
 logger = logging.getLogger(__name__)
@@ -27,6 +30,7 @@ class RSSScraper(BaseScraper):
             http_client: Shared async HTTP client
         """
         super().__init__({"sources": sources}, http_client)
+        self._extractors = ExtractorRegistry()
 
     async def fetch(self, since: datetime) -> List[ContentItem]:
         """Fetch RSS feed items.
@@ -63,8 +67,6 @@ class RSSScraper(BaseScraper):
         Returns:
             List[ContentItem]: Feed content items
         """
-        items = []
-
         try:
             # Expand environment variables in URL (e.g. ${LWN_TOKEN})
             feed_url = re.sub(
@@ -79,43 +81,61 @@ class RSSScraper(BaseScraper):
 
             # Parse feed
             feed = feedparser.parse(response.text)
-
-            for entry in feed.entries:
-                # Parse published date
-                published_at = self._parse_date(entry)
-                if not published_at or published_at < since:
-                    continue
-
-                # Generate unique ID from feed URL and entry ID
-                feed_id = str(source.url).split("//")[1].replace("/", "_")
-                entry_id = entry.get("id", entry.get("link", ""))
-                unique_id = f"{feed_id}:{hash(entry_id)}"
-
-                # Extract content
-                content = self._extract_content(entry)
-
-                item = ContentItem(
-                    id=self._generate_id("rss", feed_id, str(hash(entry_id))),
-                    source_type=SourceType.RSS,
-                    title=entry.get("title", "Untitled"),
-                    url=entry.get("link", str(source.url)),
-                    content=content,
-                    author=entry.get("author", source.name),
-                    published_at=published_at,
-                    metadata={
-                        "feed_name": source.name,
-                        "category": source.category,
-                        "tags": [tag.term for tag in entry.get("tags", [])],
-                    }
-                )
-                items.append(item)
-
         except httpx.HTTPError as e:
             logger.warning("Error fetching RSS feed %s: %s", source.name, e)
+            self.record_error(f"RSS feed {source.name}: {e}")
+            return []
         except Exception as e:
             logger.warning("Error parsing RSS feed %s: %s", source.name, e)
+            self.record_error(f"RSS feed {source.name}: {e}")
+            return []
 
-        return items
+        # Generate unique, stable ID from feed URL and entry ID
+        feed_id = str(source.url).split("//")[1].replace("/", "_")
+        extractor = None
+        if source.content_extractor:
+            extractor = self._extractors.get(source.content_extractor)
+        semaphore = asyncio.Semaphore(4)
+
+        async def _build_item(entry: dict, published_at: datetime) -> ContentItem:
+            entry_id = entry.get("id", entry.get("link", ""))
+            entry_hash = hashlib.sha256(
+                str(entry_id).encode("utf-8")
+            ).hexdigest()[:16]
+
+            content = self._extract_content(entry)
+            if extractor:
+                link = entry.get("link", "")
+                if link:
+                    async with semaphore:
+                        full = await extractor.extract(link, self.client)
+                    if full:
+                        content = full
+
+            return ContentItem(
+                id=self._generate_id("rss", feed_id, entry_hash),
+                source_type=SourceType.RSS,
+                title=entry.get("title", "Untitled"),
+                url=entry.get("link", str(source.url)),
+                content=content,
+                author=entry.get("author", source.name),
+                published_at=published_at,
+                metadata={
+                    "feed_name": source.name,
+                    "category": source.category,
+                    "tags": [tag.term for tag in entry.get("tags", [])],
+                }
+            )
+
+        tasks = []
+        for entry in feed.entries:
+            published_at = self._parse_date(entry)
+            if not published_at or published_at < since:
+                continue
+            tasks.append(_build_item(entry, published_at))
+
+        items = await asyncio.gather(*tasks)
+        return list(items)
 
     def _parse_date(self, entry: dict) -> datetime:
         """Parse publication date from feed entry.

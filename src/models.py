@@ -110,6 +110,7 @@ class AIConfig(BaseModel):
     temperature: float = 0.3
     max_tokens: int = 4096
     languages: List[str] = Field(default_factory=lambda: ["en"])
+    json_output: bool = True
 
 
 class GitHubSourceConfig(BaseModel):
@@ -137,6 +138,7 @@ class RSSSourceConfig(BaseModel):
     url: HttpUrl
     enabled: bool = True
     category: Optional[str] = None
+    content_extractor: Optional[str] = None
 
 
 class RedditSubredditConfig(BaseModel):

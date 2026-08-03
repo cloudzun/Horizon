@@ -5,7 +5,6 @@ For items that pass the score threshold, this module:
 2. Feeds search results + item content to AI to generate grounded background knowledge
 """
 
-import json
 import sys
 import os
 import asyncio
@@ -20,6 +19,7 @@ from .prompts import (
     CONTENT_ENRICHMENT_SYSTEM, CONTENT_ENRICHMENT_USER,
 )
 from ..models import ContentItem, sanitize_text
+from .utils import parse_json_response, select_content, split_content
 
 
 class ContentEnricher:
@@ -94,7 +94,7 @@ class ContentEnricher:
             title=sanitize_text(item.title),
             summary=sanitize_text(item.ai_summary or item.title),
             tags=sanitize_text(", ".join(item.ai_tags) if item.ai_tags else ""),
-            content=sanitize_text(content_text[:1000]),
+            content=sanitize_text(select_content(content_text, 1000)),
         )
 
         try:
@@ -103,7 +103,9 @@ class ContentEnricher:
                 user=user_prompt,
                 temperature=0.3,
             )
-            result = json.loads(response.strip().strip("`").replace("json\n", "", 1))
+            result = parse_json_response(response)
+            if result is None:
+                return []
             queries = result.get("queries", [])
             return queries[:3]
         except Exception:
@@ -125,15 +127,9 @@ class ContentEnricher:
             item: Content item to enrich (modified in-place via metadata)
         """
         # Extract content text and comments separately
-        content_text = ""
-        comments_text = ""
-        if item.content:
-            if "--- Top Comments ---" in item.content:
-                main, comments_part = item.content.split("--- Top Comments ---", 1)
-                content_text = main.strip()[:4000]
-                comments_text = comments_part.strip()[:2000]
-            else:
-                content_text = item.content[:4000]
+        content_text, comments_text = split_content(item.content)
+        content_text = select_content(content_text, 4000)
+        comments_text = select_content(comments_text, 2000, sampling="prefix")
 
         # Step 1: AI identifies concepts to explain
         queries = await self._extract_concepts(item, content_text)
@@ -183,17 +179,9 @@ class ContentEnricher:
         )
 
         # Parse JSON response
-        try:
-            result = json.loads(response)
-        except json.JSONDecodeError:
-            if "```json" in response:
-                json_str = response.split("```json")[1].split("```")[0].strip()
-                result = json.loads(json_str)
-            elif "```" in response:
-                json_str = response.split("```")[1].split("```")[0].strip()
-                result = json.loads(json_str)
-            else:
-                raise ValueError(f"Invalid JSON response: {response}")
+        result = parse_json_response(response)
+        if result is None:
+            raise ValueError(f"Invalid JSON response: {response}")
 
         # Combine structured sub-fields into per-language detailed_summary
         for lang in ("en", "zh"):

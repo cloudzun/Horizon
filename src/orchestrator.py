@@ -20,6 +20,7 @@ from .ai.client import create_ai_client
 from .ai.analyzer import ContentAnalyzer
 from .ai.summarizer import DailySummarizer
 from .ai.enricher import ContentEnricher
+from .ai.tokens import get_usage_snapshot
 
 
 class HorizonOrchestrator:
@@ -146,6 +147,17 @@ class HorizonOrchestrator:
             except Exception as e:
                 self.console.print(f"[yellow]⚠️  Failed to copy {lang.upper()} summary to docs/: {e}[/yellow]\n")
 
+            # Print token usage summary
+            usage = get_usage_snapshot()
+            if usage.total_tokens:
+                self.console.print(
+                    f"💡 Token usage: {usage.total_input_tokens:,} in / "
+                    f"{usage.total_output_tokens:,} out "
+                    f"({usage.total_tokens:,} total)"
+                )
+                for provider, pu in sorted(usage.per_provider.items()):
+                    self.console.print(f"   • {provider}: {pu.total:,} tokens")
+
             self.console.print("[bold green]✅ Horizon completed successfully![/bold green]")
 
         except Exception as e:
@@ -171,42 +183,66 @@ class HorizonOrchestrator:
         """
         async with httpx.AsyncClient(timeout=30.0) as client:
             tasks = []
+            source_pairs = []
 
             # GitHub sources
             if self.config.sources.github:
                 github_scraper = GitHubScraper(self.config.sources.github, client)
+                source_pairs.append(("GitHub", github_scraper))
                 tasks.append(self._fetch_with_progress("GitHub", github_scraper, since))
 
             # Hacker News
             if self.config.sources.hackernews.enabled:
                 hn_scraper = HackerNewsScraper(self.config.sources.hackernews, client)
+                source_pairs.append(("Hacker News", hn_scraper))
                 tasks.append(self._fetch_with_progress("Hacker News", hn_scraper, since))
 
             # RSS feeds
             if self.config.sources.rss:
                 rss_scraper = RSSScraper(self.config.sources.rss, client)
+                source_pairs.append(("RSS Feeds", rss_scraper))
                 tasks.append(self._fetch_with_progress("RSS Feeds", rss_scraper, since))
 
             # Reddit
             if self.config.sources.reddit.enabled:
                 reddit_scraper = RedditScraper(self.config.sources.reddit, client)
+                source_pairs.append(("Reddit", reddit_scraper))
                 tasks.append(self._fetch_with_progress("Reddit", reddit_scraper, since))
 
             # Telegram
             if self.config.sources.telegram.enabled:
                 telegram_scraper = TelegramScraper(self.config.sources.telegram, client)
+                source_pairs.append(("Telegram", telegram_scraper))
                 tasks.append(self._fetch_with_progress("Telegram", telegram_scraper, since))
 
             # Fetch all concurrently
             results = await asyncio.gather(*tasks, return_exceptions=True)
 
-            # Flatten results
+            # Flatten results and collect per-source diagnostics
             all_items = []
-            for result in results:
+            failed_sources = []
+            for (name, scraper), result in zip(source_pairs, results):
                 if isinstance(result, Exception):
-                    self.console.print(f"[red]Error fetching source: {result}[/red]")
+                    failed_sources.append(name)
+                    self.console.print(f"[red]Error fetching {name}: {result}[/red]")
                 elif isinstance(result, list):
-                    all_items.extend(result)
+                    if result:
+                        all_items.extend(result)
+                        if scraper.last_error:
+                            self.console.print(
+                                f"[yellow]⚠️  {name} partially failed: {scraper.last_error}[/yellow]"
+                            )
+                    elif scraper.last_error:
+                        failed_sources.append(name)
+                        self.console.print(f"[red]❌ {name} failed: {scraper.last_error}[/red]")
+                    else:
+                        self.console.print(f"[yellow]ℹ️  No new items from {name}[/yellow]")
+
+            # Fail loudly instead of silently publishing an empty digest
+            if failed_sources and len(failed_sources) == len(source_pairs):
+                raise RuntimeError(
+                    "All sources failed to fetch: " + ", ".join(failed_sources)
+                )
 
             return all_items
 

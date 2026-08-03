@@ -10,6 +10,7 @@ from google import genai
 from google.genai import types
 
 from ..models import AIConfig, AIProvider
+from .tokens import record_usage
 
 
 class AIClient(ABC):
@@ -83,6 +84,13 @@ class AnthropicClient(AIClient):
             system=system,
             messages=[{"role": "user", "content": user}]
         )
+        usage = getattr(message, "usage", None)
+        if usage is not None:
+            record_usage(
+                self.model,
+                input_tokens=getattr(usage, "input_tokens", 0),
+                output_tokens=getattr(usage, "output_tokens", 0),
+            )
 
         return message.content[0].text
 
@@ -105,6 +113,7 @@ class OpenAIClient(AIClient):
             kwargs["base_url"] = config.base_url
 
         self.client = AsyncOpenAI(**kwargs)
+        self.config = config
         self.model = config.model
         self.max_tokens = config.max_tokens
 
@@ -126,15 +135,25 @@ class OpenAIClient(AIClient):
         Returns:
             str: Generated text
         """
-        response = await self.client.chat.completions.create(
-            model=self.model,
-            messages=[
+        request_kwargs = {
+            "model": self.model,
+            "messages": [
                 {"role": "system", "content": system},
                 {"role": "user", "content": user}
             ],
-            temperature=temperature,
-            max_tokens=max_tokens
-        )
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+        }
+        if self.config.json_output:
+            request_kwargs["response_format"] = {"type": "json_object"}
+        response = await self.client.chat.completions.create(**request_kwargs)
+        usage = getattr(response, "usage", None)
+        if usage is not None:
+            record_usage(
+                self.model,
+                input_tokens=getattr(usage, "prompt_tokens", 0),
+                output_tokens=getattr(usage, "completion_tokens", 0),
+            )
 
         return response.choices[0].message.content
 

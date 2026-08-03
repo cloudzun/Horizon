@@ -1,6 +1,5 @@
 """Content analysis using AI."""
 
-import json
 import asyncio
 import traceback
 from typing import List
@@ -10,6 +9,7 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCo
 from .client import AIClient
 from .prompts import CONTENT_ANALYSIS_SYSTEM, CONTENT_ANALYSIS_USER
 from ..models import ContentItem, sanitize_text
+from .utils import parse_json_response, select_content, split_content
 
 
 class ContentAnalyzer:
@@ -59,19 +59,14 @@ class ContentAnalyzer:
     )
     async def _analyze_item(self, item: ContentItem) -> None:
         """Analyze a single content item."""
-        content_section = ""
-        if item.content:
-            content_text = item.content
-            if "--- Top Comments ---" in content_text:
-                main, comments_part = content_text.split("--- Top Comments ---", 1)
-                content_section = f"Content: {main.strip()[:800]}"
-            else:
-                content_section = f"Content: {content_text[:1000]}"
+        main_text, comments_text = split_content(item.content)
+        content_section = f"Content: {select_content(main_text, 800)}"
 
         discussion_parts = []
-        if item.content and "--- Top Comments ---" in item.content:
-            comments_part = item.content.split("--- Top Comments ---", 1)[1]
-            discussion_parts.append(f"Community Comments:\n{comments_part[:1500]}")
+        if comments_text:
+            discussion_parts.append(
+                f"Community Comments:\n{select_content(comments_text, 1500, sampling='prefix')}"
+            )
 
         meta = item.metadata
         engagement_items = []
@@ -115,17 +110,9 @@ class ContentAnalyzer:
             temperature=0.3
         )
 
-        try:
-            result = json.loads(response)
-        except json.JSONDecodeError:
-            if "```json" in response:
-                json_str = response.split("```json")[1].split("```")[0].strip()
-                result = json.loads(json_str)
-            elif "```" in response:
-                json_str = response.split("```")[1].split("```")[0].strip()
-                result = json.loads(json_str)
-            else:
-                raise ValueError(f"Invalid JSON response: {response}")
+        result = parse_json_response(response)
+        if result is None:
+            raise ValueError(f"Invalid JSON response: {response}")
 
         item.ai_score = float(result.get("score", 0))
         item.ai_reason = result.get("reason", "")

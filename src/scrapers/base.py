@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 import httpx
 
 from ..models import ContentItem
@@ -20,6 +20,11 @@ class BaseScraper(ABC):
         """
         self.config = config
         self.client = http_client
+        self.last_error: Optional[str] = None
+
+    def record_error(self, message: str) -> None:
+        """Remember the latest fetch error for diagnostics."""
+        self.last_error = message
 
     @abstractmethod
     async def fetch(self, since: datetime) -> List[ContentItem]:

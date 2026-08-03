@@ -111,6 +111,7 @@ class GitHubScraper(BaseScraper):
 
         except httpx.HTTPError as e:
             logger.warning("Error fetching GitHub events for %s: %s", username, e)
+            self.record_error(f"GitHub events {username}: {e}")
 
         return items
 
@@ -218,5 +219,6 @@ class GitHubScraper(BaseScraper):
 
         except httpx.HTTPError as e:
             logger.warning("Error fetching releases for %s/%s: %s", owner, repo, e)
+            self.record_error(f"GitHub releases {owner}/{repo}: {e}")
 
         return items
