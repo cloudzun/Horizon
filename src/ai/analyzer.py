@@ -2,6 +2,7 @@
 
 import json
 import asyncio
+import traceback
 from typing import List
 from tenacity import retry, stop_after_attempt, wait_exponential
 from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCompleteColumn
@@ -41,6 +42,7 @@ class ContentAnalyzer:
                         await self._analyze_item(item)
                     except Exception as e:
                         print(f"Error analyzing item {item.id}: {e}")
+                        traceback.print_exc()
                         item.ai_score = 0.0
                         item.ai_reason = "Analysis failed"
                         item.ai_summary = item.title
@@ -102,7 +104,7 @@ class ContentAnalyzer:
             title=sanitize_text(item.title),
             source=f"{item.source_type.value}",
             author=sanitize_text(item.author or "Unknown"),
-            url=str(item.url),
+            url=sanitize_text(str(item.url)),
             content_section=sanitize_text(content_section),
             discussion_section=sanitize_text(discussion_section)
         )

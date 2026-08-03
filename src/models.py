@@ -87,6 +87,7 @@ class ContentItem(BaseModel):
             self.content = sanitize_text(self.content)
         if self.author:
             self.author = sanitize_text(self.author)
+        self.url = HttpUrl(sanitize_text(str(self.url)))
         self.metadata = _sanitize_metadata(self.metadata)
         return self
 
