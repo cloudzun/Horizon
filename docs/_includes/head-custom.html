@@ -6,6 +6,24 @@
      inline layout script; all report text is sanitized before rendering. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <style>
+  /* 字体：与参考站（Hugo FixIt）一致的中英文栈 */
+  body,
+  .main-content {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC",
+      "Microsoft YaHei UI", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+      "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .main-content code,
+  .main-content pre {
+    font-family: "Source Code Pro", Menlo, Consolas, Monaco, monospace,
+      system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC",
+      "Microsoft YaHei UI", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+      "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
   /* 水平布局：标题区 + GitHub 链接 两端对齐 */
   .page-header {
     padding: 0.9rem 2.5rem !important;
@@ -129,19 +147,45 @@
 
   /* ---------- 阅读排版 ---------- */
   .main-content {
-    max-width: 80rem;
-    padding: 2rem 2.5rem;
+    max-width: none;
+    padding: 2rem 1rem;
   }
 
   .content-wrap {
     display: flex;
     align-items: flex-start;
-    gap: 2rem;
+    justify-content: center;
+    gap: 1.5rem;
   }
 
   .content-main {
-    flex: 1 1 auto;
+    width: 60%;
+    max-width: 1200px;
     min-width: 0;
+  }
+
+  @media screen and (max-width: 90em) {
+    .content-main {
+      width: 56%;
+    }
+  }
+
+  @media screen and (max-width: 75em) {
+    .content-main {
+      width: 52%;
+    }
+  }
+
+  @media screen and (max-width: 60em) {
+    .content-main {
+      width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 42.5em) {
+    .content-main {
+      width: 100%;
+    }
   }
 
   /* 桌面隐藏顶部目录列表（侧栏版本展示）；移动端恢复显示 */
@@ -149,7 +193,7 @@
     display: none;
   }
 
-  @media screen and (max-width: 68.75em) {
+  @media screen and (max-width: 60em) {
     .content-main > ol {
       display: grid;
     }
@@ -157,11 +201,14 @@
 
   /* 右侧吸顶目录 */
   .toc-aside {
-    flex: 0 0 16rem;
+    flex: 0 1 16rem;
+    max-width: 16rem;
+    min-width: 0;
     position: sticky;
     top: 1.5rem;
     max-height: calc(100vh - 3rem);
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 0.9rem 1rem;
     border: 1px solid #dce6f2;
     border-radius: 10px;
@@ -185,6 +232,7 @@
   .toc-aside ol > li {
     padding: 0.2rem 0.35rem;
     border-radius: 6px;
+    min-width: 0;
   }
 
   .toc-aside ol > li::before {
@@ -196,9 +244,11 @@
   .toc-aside ol > li a {
     font-size: 0.82rem;
     line-height: 1.45;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .toc-aside ol > li.active {
@@ -211,7 +261,7 @@
     font-size: 0.72rem;
   }
 
-  @media screen and (max-width: 68.75em) {
+  @media screen and (max-width: 60em) {
     .toc-aside {
       display: none;
     }
