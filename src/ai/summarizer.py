@@ -130,35 +130,49 @@ class DailySummarizer:
             t = _md_escape(item.metadata.get(f"title_{language}") or item.title)
             if language == "zh":
                 t = _pangu(t)
-            score = item.ai_score or "?"
-            toc_entries.append(f"{i + 1}. [{t}](#item-{i + 1}) \u2b50\ufe0f {score}/10")
+            score = item.ai_score or 0
+            toc_entries.append(
+                f"{i + 1}. [{t}](#item-{i + 1}) "
+                f'<span class="score-badge {self._score_class(score)}">'
+                f"{score:.1f}</span>"
+            )
         toc = "\n".join(toc_entries) + "\n\n---\n\n"
 
         parts = [self._format_item(item, labels, language, i + 1) for i, item in enumerate(items)]
 
         return header + toc + "".join(parts)
 
+    @staticmethod
+    def _score_class(score: float) -> str:
+        """Map a 0-10 score to a CSS badge class."""
+        s = score or 0
+        if s >= 9:
+            return "score-high"
+        if s >= 7:
+            return "score-mid"
+        if s >= 5:
+            return "score-low"
+        return "score-none"
+
     def _format_item(self, item: ContentItem, labels: dict, language: str, index: int) -> str:
-        """Format a single ContentItem into Markdown."""
-        title = _md_escape(
-            item.metadata.get(f"title_{language}") or item.title
-        )
+        """Format a single ContentItem as semantic HTML.
+
+        Text is HTML-escaped (not markdown-escaped) because items are emitted
+        as raw HTML blocks, so markdown backslash escapes would be visible.
+        """
+        title = item.metadata.get(f"title_{language}") or item.title
         url = _safe_url(str(item.url))
-        score = item.ai_score or "?"
+        score = item.ai_score or 0
         meta = item.metadata
 
-        summary = _md_escape(
+        summary = (
             meta.get(f"detailed_summary_{language}")
             or meta.get("detailed_summary")
             or item.ai_summary
             or ""
         )
-        background = _md_escape(
-            meta.get(f"background_{language}")
-            or meta.get("background")
-            or ""
-        )
-        discussion = _md_escape(
+        background = meta.get(f"background_{language}") or meta.get("background") or ""
+        discussion = (
             meta.get(f"community_discussion_{language}")
             or meta.get("community_discussion")
             or ""
@@ -170,59 +184,75 @@ class DailySummarizer:
             background = _pangu(background)
             discussion = _pangu(discussion)
 
-        # Source line with parts joined by " · ", link appended at end
+        title = html.escape(title, quote=True)
+        summary = html.escape(summary)
+        background = html.escape(background)
+        discussion = html.escape(discussion)
+
+        # Source chips: type / name / time
         source_type = item.source_type.value
-        source_parts = [source_type]
+        chips = [f'<span class="source-chip chip-{source_type}">{source_type}</span>']
         if meta.get("subreddit"):
-            source_parts.append(f"r/{_md_escape(meta['subreddit'])}")
-        if meta.get("feed_name"):
-            source_parts.append(_md_escape(meta["feed_name"]))
+            chips.append(
+                f'<span class="source-name">r/{html.escape(str(meta["subreddit"]))}</span>'
+            )
+        elif meta.get("feed_name"):
+            chips.append(
+                f'<span class="source-name">{html.escape(str(meta["feed_name"]))}</span>'
+            )
         else:
-            source_parts.append(_md_escape(item.author) or "unknown")
+            chips.append(
+                f'<span class="source-name">{html.escape(item.author or "unknown")}</span>'
+            )
         if item.published_at:
             day = item.published_at.strftime("%d").lstrip("0")
-            source_parts.append(item.published_at.strftime(f"%b {day}, %H:%M"))
-        source_line = " \u00b7 ".join(source_parts)  # ·
+            chips.append(
+                f'<span class="news-time">{item.published_at.strftime(f"%b {day}, %H:%M")}</span>'
+            )
+        meta_html = f'<div class="news-meta">{"".join(chips)}</div>'
 
         lines = [
             f'<a id="item-{index}"></a>',
-            f"## [{title}]({url}) \u2b50\ufe0f {score}/10",  # ⭐️
-            "",
-            summary,
-            "",
-            source_line,
+            '<article class="news-item">',
+            f'<h2 class="news-title"><a href="{html.escape(url, quote=True)}">{title}</a>'
+            f'<span class="score-badge {self._score_class(score)}">{score:.1f}</span></h2>',
+            meta_html,
+            f'<p class="news-summary">{summary}</p>',
         ]
 
         if background:
-            lines.append("")
-            lines.append(f"**{labels['background']}**: {background}")
+            lines.append(
+                f'<div class="news-background"><strong>{labels["background"]}</strong> '
+                f"{background}</div>"
+            )
 
         sources = meta.get("sources") or []
         if sources:
             items_html = "".join(
                 f'<li><a href="{html.escape(_safe_url(s["url"]), quote=True)}">'
-                f'{html.escape(s["title"], quote=True)}</a></li>\n'
+                f'{html.escape(str(s["title"]), quote=True)}</a></li>\n'
                 for s in sources
             )
-            lines += [
-                "",
-                f'<details><summary>{labels["references"]}</summary>\n<ul>\n{items_html}\n</ul>\n</details>',
-            ]
+            lines.append(
+                f'<details class="news-refs"><summary>{html.escape(labels["references"])}</summary>\n'
+                f"<ul>\n{items_html}</ul>\n</details>"
+            )
 
         if discussion:
-            lines.append("")
-            lines.append(f"**{labels['discussion']}**: {discussion}")
+            lines.append(
+                f'<div class="news-discussion"><strong>{labels["discussion"]}</strong> '
+                f"{discussion}</div>"
+            )
 
         if item.ai_tags:
-            tags_str = ", ".join(
-                [f"`#{t.replace('`', '')}`" for t in item.ai_tags]
+            tags_html = " ".join(
+                f'<span class="tag">#{html.escape(str(t).replace("`", ""))}</span>'
+                for t in item.ai_tags
             )
-            lines.append("")
-            lines.append(f"**{labels['tags']}**: {tags_str}")
+            lines.append(f'<div class="news-tags">{tags_html}</div>')
 
-        lines.append("")
-        lines.append("---")
-
+        lines.append("</article>")
+        lines.append("<hr>")
         return "\n".join(lines) + "\n\n"
 
     def _generate_empty_summary(self, date: str, total_fetched: int, labels: dict) -> str:

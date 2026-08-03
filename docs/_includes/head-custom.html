@@ -126,6 +126,284 @@
     color: #0b3d91;
     border-bottom-style: solid;
   }
+
+  /* ---------- 阅读排版 ---------- */
+  .main-content {
+    max-width: 50rem;
+  }
+
+  .main-content p {
+    line-height: 1.75;
+  }
+
+  .main-content h2 {
+    margin-top: 2.4rem;
+  }
+
+  .main-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c9d8ec, transparent);
+    margin: 2.2rem 0;
+  }
+
+  /* ---------- TOC 目录 ---------- */
+  .main-content ol {
+    list-style: none;
+    counter-reset: news-index;
+    padding-left: 0;
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .main-content ol > li {
+    counter-increment: news-index;
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    padding: 0.34rem 0.6rem;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+  }
+
+  .main-content ol > li:hover {
+    background: #f2f7fd;
+  }
+
+  .main-content ol > li::before {
+    content: counter(news-index);
+    flex: 0 0 auto;
+    min-width: 1.45rem;
+    height: 1.45rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #eef4fc;
+    color: #1756a9;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .main-content ol > li a {
+    color: #1f3a5f;
+    text-decoration: none;
+  }
+
+  .main-content ol > li a:hover {
+    color: #1756a9;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ---------- 评分徽章 ---------- */
+  .score-badge {
+    display: inline-block;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.5;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .score-high {
+    color: #0b7a4b;
+    background: #dff5ea;
+    box-shadow: inset 0 0 0 1px #b3e5cd;
+  }
+
+  .score-mid {
+    color: #1756a9;
+    background: #e4effc;
+    box-shadow: inset 0 0 0 1px #c2daf5;
+  }
+
+  .score-low {
+    color: #8a6d00;
+    background: #fbf3d5;
+    box-shadow: inset 0 0 0 1px #eadfae;
+  }
+
+  .score-none {
+    color: #6b7280;
+    background: #eef0f3;
+    box-shadow: inset 0 0 0 1px #d9dde3;
+  }
+
+  /* ---------- 新闻条目 ---------- */
+  .news-item {
+    margin: 0.5rem 0 0;
+  }
+
+  .news-title {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+  }
+
+  .news-title a {
+    flex: 1 1 auto;
+    color: #16324f;
+  }
+
+  .news-title a:hover {
+    color: #1756a9;
+  }
+
+  .news-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.35rem 0 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .source-chip {
+    padding: 0.08rem 0.55rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .chip-hackernews {
+    color: #c05a00;
+    background: #ffe9d6;
+  }
+
+  .chip-github {
+    color: #24292f;
+    background: #eaeef2;
+  }
+
+  .chip-rss {
+    color: #0b6bcb;
+    background: #e0f0ff;
+  }
+
+  .chip-reddit {
+    color: #e34d12;
+    background: #ffece5;
+  }
+
+  .chip-telegram {
+    color: #0a8f78;
+    background: #e0f5f1;
+  }
+
+  .source-name {
+    color: #55606e;
+  }
+
+  .news-time {
+    color: #98a2b3;
+    margin-left: auto;
+  }
+
+  .news-summary {
+    color: #333;
+    white-space: pre-line;
+  }
+
+  /* ---------- 背景 / 讨论 callout ---------- */
+  .main-content p:has(> strong),
+  .news-background,
+  .news-discussion {
+    background: #f6f9fd;
+    border-left: 3px solid #6fa8dc;
+    border-radius: 0 8px 8px 0;
+    padding: 0.55rem 0.95rem;
+    margin: 0.75rem 0;
+    color: #444;
+  }
+
+  .main-content p:has(> strong) strong,
+  .news-background strong,
+  .news-discussion strong {
+    color: #1756a9;
+    margin-right: 0.35rem;
+  }
+
+  /* ---------- 标签 ---------- */
+  .news-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.7rem 0 0.2rem;
+  }
+
+  .tag,
+  .main-content code {
+    background: #f0f4fa;
+    border: 1px solid #dce6f2;
+    color: #1756a9;
+    border-radius: 999px;
+    padding: 0.08rem 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  /* ---------- 归档按钮 ---------- */
+  .main-content > ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding-left: 0;
+  }
+
+  .main-content > ul > li {
+    margin: 0;
+  }
+
+  .main-content > ul a {
+    display: inline-block;
+    padding: 0.3rem 0.95rem;
+    border-radius: 999px;
+    background: #eef4fc;
+    color: #1756a9;
+    border: 1px solid #cfe0f5;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .main-content > ul a:hover {
+    background: #dfecfb;
+    border-color: #a9c7ec;
+  }
+
+  /* ---------- 回到顶部 ---------- */
+  .back-to-top {
+    position: fixed;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    border: 1px solid #cfe0f5;
+    background: #ffffff;
+    color: #1756a9;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(23, 86, 169, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 50;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .back-to-top:hover {
+    transform: translateY(-2px);
+    background: #eef4fc;
+  }
 </style>
 
 <script>
@@ -141,5 +419,59 @@
     header.insertBefore(wrap, name);
     wrap.appendChild(name);
     if (tag) wrap.appendChild(tag);
+  });
+
+  /* ---------- 历史日报兼容：评分徽章 / 来源徽章 / 回顶部 ---------- */
+  document.addEventListener("DOMContentLoaded", function () {
+    function esc(text) {
+      var span = document.createElement("span");
+      span.textContent = text;
+      return span.innerHTML;
+    }
+
+    function scoreClass(score) {
+      if (score >= 9) return "score-high";
+      if (score >= 7) return "score-mid";
+      if (score >= 5) return "score-low";
+      return "score-none";
+    }
+
+    // 1) 把历史日报里 "⭐️ 9.0/10" 文本升级为彩色评分徽章
+    document.querySelectorAll(".main-content h2, .main-content ol > li").forEach(function (el) {
+      if (el.querySelector(".score-badge")) return;
+      var match = el.textContent.match(/(?:⭐️|🌟)\s*(\d+(?:\.\d+)?)\s*\/\s*10/);
+      if (!match) return;
+      var score = parseFloat(match[1]);
+      var badge = '<span class="score-badge ' + scoreClass(score) + '">' + score.toFixed(1) + "</span>";
+      el.innerHTML = el.innerHTML.replace(/(?:⭐️|🌟)\s*[\d.]+\s*\/\s*10/, badge);
+    });
+
+    // 2) 把历史日报里 "rss · Lobsters · Aug 1, 21:51" 升级为来源徽章
+    document.querySelectorAll(".main-content p").forEach(function (p) {
+      if (p.querySelector(".news-meta, .news-summary, strong, a")) return;
+      var text = (p.textContent || "").trim();
+      var parts = text.split("·").map(function (s) { return s.trim(); });
+      if (parts.length < 2) return;
+      var type = parts[0].toLowerCase();
+      if (!/^(rss|hackernews|github|reddit|telegram)$/.test(type)) return;
+      var html = '<span class="source-chip chip-' + type + '">' + esc(parts[0]) + "</span>";
+      if (parts[1]) html += '<span class="source-name">' + esc(parts[1]) + "</span>";
+      if (parts[2]) html += '<span class="news-time">' + esc(parts[2]) + "</span>";
+      p.className = "news-meta";
+      p.innerHTML = html;
+    });
+
+    // 3) 回到顶部按钮
+    var btn = document.createElement("button");
+    btn.className = "back-to-top";
+    btn.setAttribute("aria-label", "返回顶部");
+    btn.textContent = "↑";
+    document.body.appendChild(btn);
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    window.addEventListener("scroll", function () {
+      btn.classList.toggle("visible", window.scrollY > 600);
+    }, { passive: true });
   });
 </script>

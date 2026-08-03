@@ -20,6 +20,8 @@
   U+FFFD（保留合法 emoji），防止 openai SDK 序列化崩溃。
 - **XSS 消毒与 CSP**：日报渲染前对全部不可信文本做 Markdown/HTML 转义、链接
   scheme 白名单；站点新增 CSP meta 作为纵深防御。
+- **站点视觉升级**：条目语义化结构、彩色评分徽章、来源徽章、背景/讨论 callout、
+  标签胶囊、目录序号徽章、归档按钮、阅读排版优化与回到顶部按钮。
 - **AI 客户端显式超时**：OpenAI/Anthropic 60s、Gemini 60s。
 - **并发抓取**：RSS feed 级（信号量 4）与 GitHub 源级（信号量 5）并行。
 - **可配置并发**：`ai.analysis_concurrency` / `ai.enrichment_concurrency`。
