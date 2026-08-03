@@ -150,13 +150,26 @@ class HorizonOrchestrator:
             # Print token usage summary
             usage = get_usage_snapshot()
             if usage.total_tokens:
+                cached = usage.total_cached_input_tokens
+                cache_pct = (
+                    f" ({cached / usage.total_input_tokens:.0%} cached)"
+                    if usage.total_input_tokens and cached
+                    else ""
+                )
                 self.console.print(
                     f"💡 Token usage: {usage.total_input_tokens:,} in / "
                     f"{usage.total_output_tokens:,} out "
-                    f"({usage.total_tokens:,} total)"
+                    f"({usage.total_tokens:,} total){cache_pct}"
                 )
                 for provider, pu in sorted(usage.per_provider.items()):
-                    self.console.print(f"   • {provider}: {pu.total:,} tokens")
+                    cached_line = (
+                        f" ({pu.cached_input_tokens:,} in cached)"
+                        if pu.cached_input_tokens
+                        else ""
+                    )
+                    self.console.print(
+                        f"   • {provider}: {pu.total:,} tokens{cached_line}"
+                    )
 
             self.console.print("[bold green]✅ Horizon completed successfully![/bold green]")
 

@@ -89,6 +89,7 @@ class AnthropicClient(AIClient):
             record_usage(
                 self.model,
                 input_tokens=getattr(usage, "input_tokens", 0),
+                cached_input_tokens=getattr(usage, "cache_read_input_tokens", 0),
                 output_tokens=getattr(usage, "output_tokens", 0),
             )
 
@@ -149,9 +150,14 @@ class OpenAIClient(AIClient):
         response = await self.client.chat.completions.create(**request_kwargs)
         usage = getattr(response, "usage", None)
         if usage is not None:
+            details = getattr(usage, "prompt_tokens_details", None)
+            cached_input_tokens = (
+                getattr(details, "cached_tokens", 0) if details is not None else 0
+            )
             record_usage(
                 self.model,
                 input_tokens=getattr(usage, "prompt_tokens", 0),
+                cached_input_tokens=cached_input_tokens,
                 output_tokens=getattr(usage, "completion_tokens", 0),
             )
 
