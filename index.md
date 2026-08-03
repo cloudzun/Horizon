@@ -17,13 +17,8 @@ title: CloudZun 每日速递
 
 ## 历史归档
 
-{% assign archive = posts | offset: 1 | limit: 3 %}
-{% if archive.size > 0 %}
 <ul>
-  {% for post in archive %}
+  {% for post in posts offset: 1 limit: 3 %}
     <li><a href="{{ post.url | relative_url }}">{{ post.date | date: "%Y-%m-%d" }}</a></li>
   {% endfor %}
 </ul>
-{% else %}
-*暂无历史记录*
-{% endif %}
