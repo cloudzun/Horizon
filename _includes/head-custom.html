@@ -144,6 +144,17 @@
     min-width: 0;
   }
 
+  /* 桌面隐藏顶部目录列表（侧栏版本展示）；移动端恢复显示 */
+  .content-main > ol {
+    display: none;
+  }
+
+  @media screen and (max-width: 68.75em) {
+    .content-main > ol {
+      display: grid;
+    }
+  }
+
   /* 右侧吸顶目录 */
   .toc-aside {
     flex: 0 0 16rem;
@@ -510,6 +521,7 @@
         wrap.className = "content-wrap";
         var contentMain = document.createElement("div");
         contentMain.className = "content-main";
+        var tocClone = tocOl.cloneNode(true);
         var aside = document.createElement("aside");
         aside.className = "toc-aside";
         aside.setAttribute("aria-label", "目录");
@@ -517,7 +529,7 @@
         title.className = "toc-aside-title";
         title.textContent = "目录";
         var nav = document.createElement("nav");
-        nav.appendChild(tocOl);
+        nav.appendChild(tocClone);
 
         // 首页追加“历史归档”入口
         if (document.getElementById("历史归档")) {
@@ -527,7 +539,7 @@
           a.href = "#历史归档";
           a.textContent = "历史归档";
           li.appendChild(a);
-          tocOl.appendChild(li);
+          tocClone.appendChild(li);
         }
 
         aside.appendChild(title);
@@ -540,7 +552,7 @@
         main.appendChild(wrap);
 
         // 滚动高亮当前阅读位置
-        var links = tocOl.querySelectorAll("a");
+        var links = tocClone.querySelectorAll("a");
         var items = [];
         links.forEach(function (a) {
           var id = (a.getAttribute("href") || "").slice(1);
