@@ -21,6 +21,9 @@ from .prompts import (
 from ..models import ContentItem, sanitize_text
 from .utils import parse_json_response, select_content, split_content
 
+# Serializes the global sys.stderr swap so concurrent tasks never race it.
+_STDERR_LOCK = asyncio.Lock()
+
 
 class ContentEnricher:
     """Enriches high-scoring content items with background knowledge."""
@@ -63,15 +66,20 @@ class ContentEnricher:
             List of dicts with keys: title, url, body
         """
         try:
-            # Suppress primp "Impersonate ... does not exist" stderr warning
-            stderr = sys.stderr
-            sys.stderr = open(os.devnull, "w")
-            try:
-                ddgs = DDGS()
-                results = ddgs.text(query, max_results=max_results)
-            finally:
-                sys.stderr.close()
-                sys.stderr = stderr
+            # Suppress the primp "Impersonate ... does not exist" stderr
+            # warning. The swap is process-global, so it must be serialized.
+            async with _STDERR_LOCK:
+                stderr = sys.stderr
+                sys.stderr = open(os.devnull, "w")
+                try:
+                    # ddgs is blocking; run it in a worker thread so the
+                    # event loop keeps servicing other tasks while we wait.
+                    results = await asyncio.to_thread(
+                        self._run_search, query, max_results
+                    )
+                finally:
+                    sys.stderr.close()
+                    sys.stderr = stderr
         except Exception:
             return []
 
@@ -79,6 +87,12 @@ class ContentEnricher:
             {"title": r.get("title", ""), "url": r.get("href", ""), "body": r.get("body", "")}
             for r in (results or [])
         ]
+
+    @staticmethod
+    def _run_search(query: str, max_results: int) -> list:
+        """Run a blocking DuckDuckGo search (called in a worker thread)."""
+        ddgs = DDGS()
+        return ddgs.text(query, max_results=max_results) or []
 
     async def _extract_concepts(self, item: ContentItem, content_text: str) -> List[str]:
         """Ask AI to identify concepts that need explanation.

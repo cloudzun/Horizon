@@ -1,5 +1,6 @@
 """GitHub scraper implementation."""
 
+import asyncio
 import logging
 import os
 from datetime import datetime
@@ -49,23 +50,25 @@ class GitHubScraper(BaseScraper):
         Returns:
             List[ContentItem]: Fetched content items
         """
-        items = []
-        sources = self.config["sources"]
+        sources = [s for s in self.config["sources"] if s.enabled]
+        if not sources:
+            return []
 
-        for source in sources:
-            if not source.enabled:
-                continue
+        # Fetch each configured source concurrently, bounded by a semaphore.
+        semaphore = asyncio.Semaphore(5)
 
-            if source.type == "user_events" and source.username:
-                user_items = await self._fetch_user_events(source.username, since)
-                items.extend(user_items)
-            elif source.type == "repo_releases" and source.owner and source.repo:
-                release_items = await self._fetch_repo_releases(
-                    source.owner, source.repo, since
-                )
-                items.extend(release_items)
+        async def _fetch_one(source) -> List[ContentItem]:
+            async with semaphore:
+                if source.type == "user_events" and source.username:
+                    return await self._fetch_user_events(source.username, since)
+                if source.type == "repo_releases" and source.owner and source.repo:
+                    return await self._fetch_repo_releases(
+                        source.owner, source.repo, since
+                    )
+                return []
 
-        return items
+        results = await asyncio.gather(*[_fetch_one(s) for s in sources])
+        return [item for items in results for item in items]
 
     async def _fetch_user_events(
         self,

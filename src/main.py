@@ -81,17 +81,20 @@ def print_config_template():
 {
   "version": "1.0",
   "ai": {
-    "provider": "anthropic",
-    "model": "claude-sonnet-4.5-20250929",
-    "api_key_env": "ANTHROPIC_API_KEY",
+    "provider": "openai",
+    "model": "deepseek-v4-flash",
+    "base_url": "https://api.deepseek.com",
+    "api_key_env": "DEEPSEEK_API_KEY",
     "temperature": 0.3,
-    "max_tokens": 4096
+    "max_tokens": 4096,
+    "languages": ["zh"],
+    "json_output": true
   },
   "sources": {
     "github": [
       {
         "type": "user_events",
-        "username": "torvalds",
+        "username": "karpathy",
         "enabled": true
       }
     ],
@@ -102,10 +105,11 @@ def print_config_template():
     },
     "rss": [
       {
-        "name": "Example Blog",
-        "url": "https://example.com/feed.xml",
+        "name": "Lobsters",
+        "url": "https://lobste.rs/rss",
         "enabled": true,
-        "category": "software-engineering"
+        "category": "tech-community",
+        "content_extractor": "trafilatura"
       }
     ]
   },
@@ -116,7 +120,7 @@ def print_config_template():
 }
 
 Also create a .env file with:
-ANTHROPIC_API_KEY=your_api_key_here
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
 GITHUB_TOKEN=your_github_token_here (optional but recommended)
 """
     console.print(template)

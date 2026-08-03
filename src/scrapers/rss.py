@@ -41,17 +41,19 @@ class RSSScraper(BaseScraper):
         Returns:
             List[ContentItem]: Fetched content items
         """
-        items = []
-        sources = self.config["sources"]
+        sources = [s for s in self.config["sources"] if s.enabled]
+        if not sources:
+            return []
 
-        for source in sources:
-            if not source.enabled:
-                continue
+        # Fetch feeds concurrently, bounded by a semaphore.
+        semaphore = asyncio.Semaphore(4)
 
-            feed_items = await self._fetch_feed(source, since)
-            items.extend(feed_items)
+        async def _fetch_one(source: RSSSourceConfig) -> List[ContentItem]:
+            async with semaphore:
+                return await self._fetch_feed(source, since)
 
-        return items
+        results = await asyncio.gather(*[_fetch_one(s) for s in sources])
+        return [item for items in results for item in items]
 
     async def _fetch_feed(
         self,

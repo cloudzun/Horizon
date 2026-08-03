@@ -111,6 +111,8 @@ class AIConfig(BaseModel):
     max_tokens: int = 4096
     languages: List[str] = Field(default_factory=lambda: ["en"])
     json_output: bool = True
+    analysis_concurrency: int = 8
+    enrichment_concurrency: int = 5
 
 
 class GitHubSourceConfig(BaseModel):

@@ -343,9 +343,8 @@ class HorizonOrchestrator:
                         primary.metadata[mk] = mv
 
                 # Append content (e.g., comments from another source)
-                if item is not primary and item.content:
-                    if primary.content and item.content not in primary.content:
-                        primary.content = (primary.content or "") + f"\n\n--- From {item.source_type.value} ---\n" + item.content
+                if item is not primary:
+                    self._merge_item_content(primary, item)
 
             primary.metadata["merged_sources"] = list(all_sources)
             merged.append(primary)
@@ -444,7 +443,9 @@ class HorizonOrchestrator:
 
         self.console.print("📚 Enriching with background knowledge...")
         ai_client = create_ai_client(self.config.ai)
-        enricher = ContentEnricher(ai_client)
+        enricher = ContentEnricher(
+            ai_client, concurrency=self.config.ai.enrichment_concurrency
+        )
         await enricher.enrich_batch(items)
         self.console.print(f"   Enriched {len(items)} items\n")
 
@@ -460,7 +461,9 @@ class HorizonOrchestrator:
         self.console.print("🤖 Analyzing content with AI...")
 
         ai_client = create_ai_client(self.config.ai)
-        analyzer = ContentAnalyzer(ai_client)
+        analyzer = ContentAnalyzer(
+            ai_client, concurrency=self.config.ai.analysis_concurrency
+        )
 
         return await analyzer.analyze_batch(items)
 

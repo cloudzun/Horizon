@@ -29,7 +29,13 @@ echo "$LOG_PREFIX Deploying to gh-pages..."
 TMPDIR=$(mktemp -d)
 trap "rm -rf $TMPDIR" EXIT
 
-git fetch origin gh-pages:gh-pages 2>/dev/null || git checkout --orphan gh-pages && git checkout main
+# Ensure a local gh-pages branch exists before adding the worktree.
+if ! git show-ref --verify --quiet refs/heads/gh-pages; then
+  git fetch origin gh-pages:gh-pages 2>/dev/null || {
+    echo "$LOG_PREFIX gh-pages branch missing and could not be fetched; aborting deploy."
+    exit 1
+  }
+fi
 
 git worktree add "$TMPDIR" gh-pages
 cp -r docs/* "$TMPDIR/"

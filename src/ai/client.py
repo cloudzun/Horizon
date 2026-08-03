@@ -55,7 +55,7 @@ class AnthropicClient(AIClient):
         if config.base_url:
             kwargs["base_url"] = config.base_url
 
-        self.client = AsyncAnthropic(**kwargs)
+        self.client = AsyncAnthropic(timeout=60.0, **kwargs)
         self.model = config.model
         self.max_tokens = config.max_tokens
 
@@ -113,7 +113,7 @@ class OpenAIClient(AIClient):
         if config.base_url:
             kwargs["base_url"] = config.base_url
 
-        self.client = AsyncOpenAI(**kwargs)
+        self.client = AsyncOpenAI(timeout=60.0, **kwargs)
         self.config = config
         self.model = config.model
         self.max_tokens = config.max_tokens
@@ -177,7 +177,10 @@ class GeminiClient(AIClient):
         if not api_key:
             raise ValueError(f"Missing API key: {config.api_key_env}")
 
-        self.client = genai.Client(api_key=api_key)
+        self.client = genai.Client(
+            api_key=api_key,
+            http_options=types.HttpOptions(timeout=60000),
+        )
         self.model = config.model
         self.temperature = config.temperature
         self.max_tokens = config.max_tokens
