@@ -8,7 +8,7 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCo
 
 from .client import AIClient
 from .prompts import CONTENT_ANALYSIS_SYSTEM, CONTENT_ANALYSIS_USER
-from ..models import ContentItem
+from ..models import ContentItem, sanitize_text
 
 
 class ContentAnalyzer:
@@ -99,12 +99,12 @@ class ContentAnalyzer:
         discussion_section = "\n".join(discussion_parts) if discussion_parts else ""
 
         user_prompt = CONTENT_ANALYSIS_USER.format(
-            title=item.title,
+            title=sanitize_text(item.title),
             source=f"{item.source_type.value}",
-            author=item.author or "Unknown",
+            author=sanitize_text(item.author or "Unknown"),
             url=str(item.url),
-            content_section=content_section,
-            discussion_section=discussion_section
+            content_section=sanitize_text(content_section),
+            discussion_section=sanitize_text(discussion_section)
         )
 
         response = await self.client.complete(

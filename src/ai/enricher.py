@@ -19,7 +19,7 @@ from .prompts import (
     CONCEPT_EXTRACTION_SYSTEM, CONCEPT_EXTRACTION_USER,
     CONTENT_ENRICHMENT_SYSTEM, CONTENT_ENRICHMENT_USER,
 )
-from ..models import ContentItem
+from ..models import ContentItem, sanitize_text
 
 
 class ContentEnricher:
@@ -91,10 +91,10 @@ class ContentEnricher:
             List of search queries for concepts that need explanation
         """
         user_prompt = CONCEPT_EXTRACTION_USER.format(
-            title=item.title,
-            summary=item.ai_summary or item.title,
-            tags=", ".join(item.ai_tags) if item.ai_tags else "",
-            content=content_text[:1000],
+            title=sanitize_text(item.title),
+            summary=sanitize_text(item.ai_summary or item.title),
+            tags=sanitize_text(", ".join(item.ai_tags) if item.ai_tags else ""),
+            content=sanitize_text(content_text[:1000]),
         )
 
         try:
@@ -150,7 +150,11 @@ class ContentEnricher:
                 if isinstance(results, Exception) or not results:
                     continue
                 all_results.extend(results)
-                lines = [f"- [{r['title']}]({r['url']}): {r['body']}" for r in results]
+                lines = [
+                    f"- [{sanitize_text(r['title'])}]({sanitize_text(r['url'])}): "
+                    f"{sanitize_text(r['body'])}"
+                    for r in results
+                ]
                 web_sections.append(f"**{query}:**\n" + "\n".join(lines))
         web_context = "\n\n".join(web_sections) if web_sections else ""
 
@@ -159,15 +163,17 @@ class ContentEnricher:
 
         # Step 3: AI generates background grounded in search results
         user_prompt = CONTENT_ENRICHMENT_USER.format(
-            title=item.title,
+            title=sanitize_text(item.title),
             url=str(item.url),
-            summary=item.ai_summary or item.title,
+            summary=sanitize_text(item.ai_summary or item.title),
             score=item.ai_score or 0,
-            reason=item.ai_reason or "",
-            tags=", ".join(item.ai_tags) if item.ai_tags else "",
-            content=content_text,
-            comments_section=f"\n**Community Comments:**\n{comments_text}" if comments_text else "",
-            web_context=web_context or "No web search results available.",
+            reason=sanitize_text(item.ai_reason or ""),
+            tags=sanitize_text(", ".join(item.ai_tags) if item.ai_tags else ""),
+            content=sanitize_text(content_text),
+            comments_section=sanitize_text(
+                f"\n**Community Comments:**\n{comments_text}"
+            ) if comments_text else "",
+            web_context=sanitize_text(web_context or "No web search results available."),
         )
 
         response = await self.client.complete(

@@ -3,7 +3,52 @@
 from datetime import datetime
 from enum import Enum
 from typing import Optional, List, Dict, Any
-from pydantic import BaseModel, HttpUrl, Field
+from pydantic import BaseModel, HttpUrl, Field, model_validator
+
+
+def sanitize_text(value: str) -> str:
+    """Replace lone surrogate code units with U+FFFD, preserving valid pairs.
+
+    The OpenAI SDK serializes request bodies with ``ensure_ascii=False`` and then
+    encodes them as UTF-8, which raises ``UnicodeEncodeError`` if a string
+    contains an unpaired surrogate (commonly produced by malformed HTML
+    entities or byte decoding in scraped feeds). Valid surrogate pairs (emoji)
+    are kept intact.
+    """
+    if not value:
+        return value
+
+    out = []
+    i = 0
+    n = len(value)
+    while i < n:
+        code = ord(value[i])
+        if 0xD800 <= code <= 0xDBFF:
+            # High surrogate: keep it only if followed by a low surrogate.
+            if i + 1 < n and 0xDC00 <= ord(value[i + 1]) <= 0xDFFF:
+                out.append(value[i])
+                out.append(value[i + 1])
+                i += 2
+                continue
+            out.append("\ufffd")
+        elif 0xDC00 <= code <= 0xDFFF:
+            # Lone low surrogate.
+            out.append("\ufffd")
+        else:
+            out.append(value[i])
+        i += 1
+    return "".join(out)
+
+
+def _sanitize_metadata(value):
+    """Recursively sanitize strings inside metadata dicts/lists."""
+    if isinstance(value, str):
+        return sanitize_text(value)
+    if isinstance(value, dict):
+        return {k: _sanitize_metadata(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_sanitize_metadata(v) for v in value]
+    return value
 
 
 class SourceType(str, Enum):
@@ -33,6 +78,17 @@ class ContentItem(BaseModel):
     ai_reason: Optional[str] = None
     ai_summary: Optional[str] = None
     ai_tags: List[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def sanitize_fields(self) -> "ContentItem":
+        """Strip lone surrogates that would break AI client serialization."""
+        self.title = sanitize_text(self.title)
+        if self.content:
+            self.content = sanitize_text(self.content)
+        if self.author:
+            self.author = sanitize_text(self.author)
+        self.metadata = _sanitize_metadata(self.metadata)
+        return self
 
 
 class AIProvider(str, Enum):
