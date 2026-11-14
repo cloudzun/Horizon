@@ -5,7 +5,7 @@ date: 2026-11-14
 lang: zh
 ---
 
-> Analyzed 70 items, but none met the importance threshold.
+> Analyzed 60 items, but none met the importance threshold.
 
 今日暂无重要动态，可能原因：
 - 今天关注的信息源较平静
